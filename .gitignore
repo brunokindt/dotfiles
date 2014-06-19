@@ -1,0 +1,11 @@
+*.*~
+.svn
+.directory
+.settings
+*.kate-swp
+*.swp
+*.swo
+*.o
+*.hi
+node_modules
+.netrwhist
