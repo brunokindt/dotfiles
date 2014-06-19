@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 source_dir=`pwd`
-#dest_dir=$HOME
-dest_dir=`mktemp -d`
+dest_dir=$HOME
+#dest_dir=`mktemp -d`
 echo "dotfile destination is $dest_dir"
 
 mkdir -p $dest_dir/Local/script
