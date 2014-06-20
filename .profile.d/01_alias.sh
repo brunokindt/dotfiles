@@ -6,7 +6,6 @@ alias prj-edit-add='vimx --servername PRJ --remote-tab '
 alias prj-notes="cd $NOTES;vimx --servername NOTES"
 alias prj-journo="cd $JOURNO/bootstrap/posts;vimx --servername JOURNO"
 alias lastnotes='find $NOTES -maxdepth 1 -mtime -2 -type f -iname "note_*" -exec vimx --servername NOTES --remote-tab {} +'
-alias wifrt_srv='cd $WIFRTDEV;./server.py HOME'
 alias ls="ls --color=auto"
 alias xlock="xlock -mode blank"
 alias nowplaying="ncmpcpp --now-playing"
@@ -25,10 +24,18 @@ if [ -f "$SCRIPT/v/v.sh" ]; then
     . "$SCRIPT/v/v.sh"
 fi
 
+# z will take you to the most 'frecent' directory that matches ALL of the regexes given on the command line
+# example
+#   z foo       # cd to most frecent dir matching foo
+#   z foo bar   # cd to most frecent dir matching foo and bar
+#   z -r foo    # cd to highest ranked dir matching foo
 if [ -f "$SRC/z/z.sh" ]; then
     . "$SRC/z/z.sh"
 fi
 
+# Quickly go back to a specific parent directory
+# example
+#   db site
 if [ -f "$SRC/bd/bd" ]; then
     alias bd=". $SRC/bd/bd -s"
 fi
