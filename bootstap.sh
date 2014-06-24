@@ -40,4 +40,10 @@ linkResource ".gitconfig"
 linkResource ".zshrc"
 linkResource "script" "$dest_dir/Local"
 
+ternForVimDir=".vim/bundle/tern_for_vim"
+if [ -d "$ternForVimDir" ] && [ -f "$ternForVimDir/package.json" ]; then
+    cd "$ternForVimDir" &&
+    npm install
+fi
+
 echo "Done."
