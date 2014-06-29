@@ -37,7 +37,7 @@ autocmd BufNewFile,BufReadPost *.md setl filetype=markdown shiftwidth=2 tabstop=
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2
 autocmd BufNewFile,BufReadPost *.litcoffee setl shiftwidth=2 tabstop=2
 autocmd BufNewFile,BufReadPost Cakefile setl shiftwidth=2 tabstop=2
-autocmd BufNewFile,BufReadPost javascript setl nocindent shiftwidth=4 tabstop=4 autoindent
+autocmd BufNewFile,BufReadPost javascript setl nocindent shiftwidth=2 tabstop=2 autoindent
 autocmd Filetype gitcommit setlocal spell
 "
 autocmd BufWritePre * :%s/\s\+$//e
