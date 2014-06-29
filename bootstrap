@@ -1,33 +1,33 @@
 #!/usr/bin/env sh
 source_dir=`pwd`
-dest_dir=$HOME
-#dest_dir=`mktemp -d`
-echo "dotfile destination is $dest_dir"
+dst_default=$HOME
+#dst_default=`mktemp -d`
+echo "dotfile dstination is $dst_default"
 
-mkdir -p $dest_dir/Local/script
-mkdir -p $dest_dir/Local/src
-mkdir -p $dest_dir/Library/notes
-mkdir -p $dest_dir/Library/projects
+mkdir -p $dst_default/Local/script
+mkdir -p $dst_default/Local/src
+mkdir -p $dst_default/Library/notes
+mkdir -p $dst_default/Library/projects
 
 function linkResource {
-    source=$1
-    dest=${2:-$dest_dir}
+    local src=$1
+    local dst=${2:-$dst_default}
 
-    #  $source should be directory of file
-    if [[ -z "$source" || ! -r "$source" ]]; then
-        echo "Could not link $source"
+    #  $src should be directory of file
+    if [[ -z "$src" || ! -r "$src" ]]; then
+        echo "Could not link $src"
         return
     fi
 
-    if [[ -e "$dest/$source" ]]; then
-        echo "Destination $dest/$source already exists"
+    if [[ -e "$dst/$src" ]]; then
+        echo "Destination $dst/$src already exists"
         return
     fi
 
     # link the resource
-    echo "Create link from $source_dir/$source to $dest"
-    if [[ ! -d "$dest/$source" ]]; then
-        ln -s "$source_dir/$source" "$dest/$source"
+    echo "Create link from $source_dir/$src to $dst"
+    if [[ ! -d "$dst/$src" ]]; then
+        ln -s "$source_dir/$src" "$dst/$src"
     fi
 }
 
@@ -38,12 +38,18 @@ linkResource ".bashrc"
 linkResource ".gitignore"
 linkResource ".gitconfig"
 linkResource ".zshrc"
-linkResource "script" "$dest_dir/Local"
+linkResource "script" "$dst_default/Local"
 
 ternForVimDir=".vim/bundle/tern_for_vim"
 if [ -d "$ternForVimDir" ] && [ -f "$ternForVimDir/package.json" ]; then
+    pushd .
     cd "$ternForVimDir" &&
     npm install
+    popd
+fi
+
+if hash "zeitgeist-daemon" >2 /dev/null; then
+  wget --quit -O ".vim/plugin/zeitgeist.vim" "https://raw.githubusercontent.com/jeffwheeler/vimfiles/master/plugin/zeitgeist.vim"
 fi
 
 echo "Done."
