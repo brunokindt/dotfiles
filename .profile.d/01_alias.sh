@@ -19,7 +19,6 @@ alias now='date +"%Y-%m-%d %H:%M"'
 alias playmp3='for i in *.mp3; do mplayer "$i"; done'
 alias h='history | grep'
 alias ranger='python $SRC/ranger/ranger.py'
-
 if [ -f "$SCRIPT/v/v.sh" ]; then
     . "$SCRIPT/v/v.sh"
 fi
@@ -40,3 +39,7 @@ if [ -f "$SRC/bd/bd" ]; then
     alias bd=". $SRC/bd/bd -s"
 fi
 
+# use optirun if available
+if hash optirun 2> /dev/null; then
+  alias vlc="optirun vlc"
+fi
