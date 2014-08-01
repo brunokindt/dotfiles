@@ -22,3 +22,6 @@
 [submodule "script/bd"]
 	path = script/bd
 	url = https://github.com/vigneshwaranr/bd.git
+[submodule ".vim/bundle/editorconfig-vim"]
+	path = .vim/bundle/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim
