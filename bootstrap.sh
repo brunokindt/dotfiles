@@ -50,7 +50,7 @@ fi
 
 # vim & zeitgeist
 if hash "zeitgeist-daemon" >2 /dev/null; then
-  wget "https://raw.githubusercontent.com/jeffwheeler/vimfiles/master/plugin/zeitgeist.vim" > .vim/plugin/zeitgeist.vim
+  wget -O .vim/plugin/zeitgeist.vim "https://raw.githubusercontent.com/jeffwheeler/vimfiles/master/plugin/zeitgeist.vim"
 fi
 
 echo "Done."
