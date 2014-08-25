@@ -1,22 +1,38 @@
+" Compatibility
 set nocompatible
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set smartindent
-set autoindent
-set number
-set numberwidth=6
-set relativenumber
+
+" General
+set background=dark         " dark background
+set hidden
+set ttyfast
 set nowrap
-set textwidth=120
-set showmatch               " higlight matching braces
-set incsearch
-set showcmd
+set textwidth=0             " don't break lines
 set nobackup
 set nowritebackup
-set cursorline
+set showmatch               " higlight matching braces
+set paste                   " paste text from another window
+
+" Search
+set incsearch               " search while typing
+set hlsearch                " highlight search
+set ignorecase              " case insensitive search
+set smartcase               " override ignorecase if uppercase in search string
+
+" Tabs
+set autoindent
+set smartindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
+
+" Display
+set number
+set numberwidth=6
+" set relativenumber
+set showcmd
+set laststatus=2            " always show statusline
 set background=dark
-set hidden
+set cursorline
 
 set t_Co=256
 let g:solarized_termcolors=256
