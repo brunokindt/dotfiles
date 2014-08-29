@@ -1,9 +1,7 @@
 # vim
 export VIMHOME=$HOME/.vim
-if ! hash vim 2> /dev/null && hash vimx 2> /dev/null; then
-  alias vim='vimx'
-  export VIM_CMD=vimx
-fi
+export VIM_CMD=vimx
+alias vim='vimx'
 
 export SCRIPT=$HOME/Local/script
 export NOTES=$HOME/Library/notes
@@ -11,8 +9,10 @@ export JOURNO=$HOME/Library/journo_IA
 export SRC=$HOME/Local/src
 export PRJ=$HOME/Library/projects
 export HAIDEN=$PRJ/org.hiuki.haiden
+
 export EDITOR="vimx"
 export TERMCMD="konsole"
+
 export GREP_OPTIONS='--exclude-dir=".svn" -rn --color'
 
 # version control
