@@ -1,4 +1,4 @@
-alias prj-set='pwd > $PRJ/current'
+alias prj-set='pwd > $PRJ/current; echo "`date`\t`pwd`" >> $PRJ/history'
 alias prj-get='cd `cat $PRJ/current`'
 alias prj-ls='cat $PRJ/current'
 alias prj-edit='vimx --servername PRJ '
