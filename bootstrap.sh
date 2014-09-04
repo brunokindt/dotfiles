@@ -2,7 +2,7 @@
 source_dir=`pwd`
 dst_default=$HOME
 #dst_default=`mktemp -d`
-echo "dotfile dstination is $dst_default"
+echo "dotfile destination is $dst_default"
 
 mkdir -p $dst_default/Local/script
 mkdir -p $dst_default/Local/src
@@ -50,7 +50,7 @@ if [ -d "$ternForVimDir" ] && [ -f "$ternForVimDir/package.json" ]; then
 fi
 
 # vim & zeitgeist
-if hash "zeitgeist-daemon" >2 /dev/null; then
+if hash "zeitgeist-daemon" 2> /dev/null; then
   wget -O .vim/plugin/zeitgeist.vim "https://raw.githubusercontent.com/jeffwheeler/vimfiles/master/plugin/zeitgeist.vim"
 fi
 
