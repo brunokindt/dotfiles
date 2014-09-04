@@ -1,12 +1,4 @@
 node_modules
 .swp
 *.swp
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/bruno.kindt/Library/projects/org.hiuki.clients/fengustrum.site/public_html'
-let g:netrw_dirhist_2='/home/bruno.kindt/Library/projects/org.hiuki.clients/fengustrum.site'
-let g:netrw_dirhist_3='/home/bruno.kindt/Library/projects/org.hiuki.clients/fengustrum.site/public_html/wp-content/themes/fengustrum2'
-let g:netrw_dirhist_4='/home/bruno.kindt/Library/projects/org.hiuki.clients/fengustrum.site/public_html/wp-content/themes/fengustrum'
-let g:netrw_dirhist_5='/home/bruno.kindt/Library/projects/org.hiuki.clients/fengustrum.site/public_html/wp-content/themes/fengustrum2'
-let g:netrw_dirhist_6='/home/bruno.kindt/Library/projects/org.hiuki.clients/fengustrum.site/script'
-let g:netrw_dirhist_7='/home/bruno.kindt/Library/projects/dotfiles/.profile.d'
+.vim/.netrwhist
