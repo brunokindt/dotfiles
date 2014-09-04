@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/molokai"]
 	path = .vim/bundle/molokai
 	url = https://github.com/brunokindt/molokai.git
+[submodule ".config/awesome/lain"]
+	path = .config/awesome/lain
+	url = git://github.com/copycat-killer/lain.git
