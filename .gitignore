@@ -2,3 +2,6 @@ node_modules
 .swp
 *.swp
 .vim/.netrwhist
+.config/ranger/history
+.config/ranger/tagged
+.config/ranger/bookmarks

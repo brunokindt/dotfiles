@@ -40,6 +40,7 @@ linkResource ".gitconfig"
 linkResource ".zshrc"
 linkResource "script" "$dst_default/Local"
 linkResource ".i3"
+linkResource ".config/ranger"
 
 ternForVimDir=".vim/bundle/tern_for_vim"
 if [ -d "$ternForVimDir" ] && [ -f "$ternForVimDir/package.json" ]; then
