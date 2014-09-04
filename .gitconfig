@@ -1,8 +1,0 @@
-[user]
-	name = Bruno Kindt
-	email = bruno.kindt@gmail.com
-[diff]
-    tool = vimdiff
-    algorithm = patience
-[core]
-    editor = /usr/bin/vim

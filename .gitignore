@@ -10,3 +10,4 @@
 node_modules
 .netrwhist
 .vim/plugin/zeitgeist.vim
+.gitconfig
