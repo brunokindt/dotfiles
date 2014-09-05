@@ -11,7 +11,8 @@ export PRJ=$HOME/Library/projects
 export HAIDEN=$PRJ/org.hiuki.haiden
 
 export EDITOR="vimx"
-export TERMCMD="konsole"
+export TERMCMD="konsole"  # for awesome wm
+export TERMINAL="konsole" # for i3 wm
 
 export GREP_OPTIONS='--exclude-dir=".svn" -rn --color'
 
