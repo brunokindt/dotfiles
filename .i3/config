@@ -188,3 +188,6 @@ bar {
         position        top
         #mode            hide
 }
+
+
+exec_always $HOME/Local/script/startup.sh
