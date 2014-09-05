@@ -21,16 +21,3 @@ for file in $HOME/.profile.d/*.sh; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
-
-if [ -f "$SCRIPT/v/v.sh" ]; then
-    . "$SCRIPT/v/v.sh"
-fi
-
-if [ -f "$SRC/z/z.sh" ]; then
-    . "$SRC/z/z.sh"
-fi
-
-if [ -f "$SRC/bd/bd" ]; then
-    alias bd=". $SRC/bd/bd -s"
-fi
-
