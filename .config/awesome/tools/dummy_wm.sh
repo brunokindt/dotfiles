@@ -8,6 +8,12 @@ start() {
   DISPLAY=:1.0 setxkbmap be
   #DISPLAY=:1.0 awesome -c ~/.config/awesome/rc.lua &
   DISPLAY=:1.0 awesome &
+  DISPLAY=:1.0 konsole &
+  DISPLAY=:1.0 konsole &
+}
+
+stop() {
+  pkill Xephyr
 }
 
 restart() {
@@ -27,6 +33,9 @@ case "$1" in
     start)
         $1
         ;;
+    stop)
+        $1
+        ;;
     restart)
         $1
         ;;
@@ -34,7 +43,7 @@ case "$1" in
         $1
         ;;
     *)
-        echo $"Usage: $0 {start|restart|watch}"
+        echo $"Usage: $0 {start|stop|restart|watch}"
         exit 2
 esac
 exit $?
