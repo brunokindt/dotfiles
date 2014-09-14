@@ -28,6 +28,8 @@ set shiftwidth=2
 " Display
 set number
 set numberwidth=6
+set scrolloff=4             " minimal number of screen lines to keep above and below the cursor.
+
 " set relativenumber
 set showcmd
 set laststatus=2            " always show statusline
