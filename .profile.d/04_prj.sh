@@ -25,11 +25,40 @@ prj-notes() {
 }
 
 prj-journo() {
-  cd $JOURNO/bootstrap/posts;vimx --servername JOURNO
+  cd $JOURNO/bootstrap/posts;
+  vimx --servername JOURNO
+}
+
+prj-jekyll-edit() {
+  cd $JEKYLL/src/_posts
+  vimx --servername JEKYLL
+}
+
+prj-jekyll-new() {
+  FILENAME="`date +%Y-%m-%d-untiteld_%s`.md"
+  FILEPATH="${JEKYLL}/src/_posts"
+  cd $FILEPATH
+  VIM_SERVER_NAME="JEKYLL"
+  if [ -t 1 ]; then
+    if [ "`vimx --serverlist | grep -i $VIM_SERVER_NAME`" = "" ]; then
+      $VIM_CMD --servername $VIM_SERVER_NAME "${FILEPATH}/${FILENAME}"
+    else
+      $VIM_CMD --servername $VIM_SERVER_NAME --remote-tab "${FILEPATH}/${FILENAME}"
+    fi
+  else
+    $TERMCMD -e vim "${FILEPATH}/${FILENAME}"
+  fi
+}
+
+prj-jekyll() {
+  case "$1" in
+      new) prj-jekyll-new ;;
+      *) prj-jekyll-edit;;
+  esac
 }
 
 prj-usage() {
-  echo "Usage: prj {edit|set|get|ls|add|notes|journo}"
+  echo "Usage: prj {edit|set|get|ls|add|notes|journo|jekyll|jekyll new|jekyll edit}"
 }
 
 prj() {
@@ -41,6 +70,7 @@ prj() {
       add) prj-add $2;;
       notes) prj-notes ;;
       journo) prj-journo ;;
+      jekyll) prj-jekyll $2 ;;
       *) prj-usage;;
   esac
 }
