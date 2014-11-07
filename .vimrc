@@ -18,7 +18,7 @@ set hlsearch                " highlight search
 set ignorecase              " case insensitive search
 set smartcase               " override ignorecase if uppercase in search string
 
-" Tabs
+" Indentation
 set autoindent
 set smartindent
 set expandtab
@@ -55,10 +55,10 @@ autocmd BufNewFile,BufReadPost *.md setl filetype=markdown shiftwidth=2 tabstop=
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2
 autocmd BufNewFile,BufReadPost *.litcoffee setl shiftwidth=2 tabstop=2
 autocmd BufNewFile,BufReadPost Cakefile setl shiftwidth=2 tabstop=2
-autocmd BufNewFile,BufReadPost javascript setl nocindent shiftwidth=2 tabstop=2 autoindent
+autocmd BufNewFile,BufReadPost javascript setl nocindent shiftwidth=2 tabstop=2
 autocmd Filetype gitcommit setlocal spell
 "
-autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre *.{less,md,coffee,litcoffee,Cakefile,js} :%s/\s\+$//e
 " CursorHold : fires after you move the cursor and then let it sit still for updatetime milliseconds. (Default 4 seconds.)
 " checktime  : check for changes on disk and prompt you to reload
 autocmd CursorHold * checktime      " check for file changes on cursor 'idle'
