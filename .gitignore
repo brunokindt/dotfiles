@@ -2,6 +2,7 @@ node_modules
 .swp
 *.swp
 .vim/.netrwhist
+.vim/colors
 .config/ranger/history
 .config/ranger/tagged
 .config/ranger/bookmarks
