@@ -36,6 +36,12 @@ set laststatus=2            " always show statusline
 set background=dark
 set cursorline
 
+" CtrlP
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|node_modules$',
+  \ 'file': '\.so$\|\.dat$'
+  \ }
+
 set t_Co=256
 let g:solarized_termcolors=256
 
