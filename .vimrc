@@ -38,7 +38,7 @@ set cursorline
 
 " CtrlP
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|node_modules$',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|node_modules$\|build$',
   \ 'file': '\.so$\|\.dat$'
   \ }
 
