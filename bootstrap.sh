@@ -57,6 +57,8 @@ if hash "zeitgeist-daemon" 2> /dev/null; then
 fi
 
 wget -O .vim/colors/sorcerer.vim "https://raw.githubusercontent.com/adlawson/vim-sorcerer/master/colors/sorcerer.vim"
-wget -O .vim/colors/monokai "https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim"
+wget -O .vim/colors/monokai.vim "https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim"
+wget -O .vim/colors/tomorrow.vim "https://raw.githubusercontent.com/chriskempson/vim-tomorrow-theme/master/colors/Tomorrow.vim"
+
 
 echo "Done."
