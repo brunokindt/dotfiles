@@ -45,9 +45,10 @@ let g:ctrlp_custom_ignore = {
 set t_Co=256
 let g:solarized_termcolors=256
 
-colorscheme badwolf
-let g:badwolf_darkgutter = 1
-let g:badwolf_darkbackground = 1
+" colorscheme badwolf
+" let g:badwolf_darkgutter = 1
+" let g:badwolf_darkbackground = 0
+colorscheme tomorrow2
 
 syntax enable
 set complete+=kspell
