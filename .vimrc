@@ -41,6 +41,7 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.hg$\|\.svn$\|node_modules$\|build$',
   \ 'file': '\.so$\|\.dat$'
   \ }
+let g:ctrlp_show_hidden = 1
 
 set t_Co=256
 let g:solarized_termcolors=256
