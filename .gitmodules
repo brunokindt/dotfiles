@@ -13,9 +13,6 @@
 [submodule ".vim/bundle/vim-javascript"]
 	path = .vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
-[submodule ".vim/bundle/tern_for_vim"]
-	path = .vim/bundle/tern_for_vim
-	url = https://github.com/marijnh/tern_for_vim.git
 [submodule "script/z"]
 	path = script/z
 	url = https://github.com/rupa/z.git
