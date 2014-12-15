@@ -65,7 +65,7 @@ autocmd BufNewFile,BufReadPost *.litcoffee setl shiftwidth=2 tabstop=2
 autocmd BufNewFile,BufReadPost Cakefile setl shiftwidth=2 tabstop=2
 autocmd BufNewFile,BufReadPost javascript setl nocindent shiftwidth=2 tabstop=2
 autocmd BufNewFile,BufReadPost *.tsv setl noexpandtab listchars=eol:$,tab:>- list
-autocmd Filetype gitcommit setlocal spell
+autocmd Filetype gitcommit setlocal spell textwidth=72
 "
 autocmd BufWritePre *.{less,md,coffee,litcoffee,Cakefile,js} :%s/\s\+$//e
 " CursorHold : fires after you move the cursor and then let it sit still for updatetime milliseconds. (Default 4 seconds.)
