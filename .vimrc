@@ -10,7 +10,6 @@ set textwidth=0             " don't break lines
 set nobackup
 set nowritebackup
 set showmatch               " higlight matching braces
-set paste                   " paste text from another window
 
 " Search
 set incsearch               " search while typing
