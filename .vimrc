@@ -28,12 +28,16 @@ set shiftwidth=2
 set number
 set numberwidth=6
 set scrolloff=4             " minimal number of screen lines to keep above and below the cursor.
+set colorcolumn=80          "
 
 " set relativenumber
 set showcmd
 set laststatus=2            " always show statusline
 set background=dark
 set cursorline
+
+" spell-checking
+:setlocal spell spelllang=en_us
 
 " CtrlP
 let g:ctrlp_custom_ignore = {
@@ -64,7 +68,7 @@ autocmd BufNewFile,BufReadPost *.litcoffee setl shiftwidth=2 tabstop=2
 autocmd BufNewFile,BufReadPost Cakefile setl shiftwidth=2 tabstop=2
 autocmd BufNewFile,BufReadPost javascript setl nocindent shiftwidth=2 tabstop=2
 autocmd BufNewFile,BufReadPost *.tsv setl noexpandtab listchars=eol:$,tab:>- list
-autocmd Filetype gitcommit setlocal spell textwidth=72
+autocmd Filetype gitcommit setlocal spell textwidth=72 colorcolumn=72
 "
 autocmd BufWritePre *.{less,md,coffee,litcoffee,Cakefile,js} :%s/\s\+$//e
 " CursorHold : fires after you move the cursor and then let it sit still for updatetime milliseconds. (Default 4 seconds.)
