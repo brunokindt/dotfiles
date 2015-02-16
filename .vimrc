@@ -41,18 +41,21 @@ set cursorline
 
 " CtrlP
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|node_modules$\|build$',
-  \ 'file': '\.so$\|\.dat$'
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|node_modules$\|build$\|dist$\|.tmp$',
+  \ 'file': '\.so$\|\.dat$\|.swp$'
   \ }
 let g:ctrlp_show_hidden = 1
 
 set t_Co=256
 let g:solarized_termcolors=256
 
-" colorscheme badwolf
-" let g:badwolf_darkgutter = 1
-" let g:badwolf_darkbackground = 0
-colorscheme tomorrow2
+" jshint2
+let jshint2_save = 1
+
+colorscheme badwolf
+let g:badwolf_darkgutter = 1
+let g:badwolf_darkbackground = 0
+"colorscheme tomorrow2
 
 syntax enable
 set complete+=kspell
@@ -62,7 +65,7 @@ map <F4> :execute " grep -srnw --binary-files=without-match --exclude-dir=.git -
 nnoremap <F12>c :exe ':silent !chromium-browser %<F12>'<CR>
 "
 autocmd BufNewFile,BufReadPost *.less setl filetype=less
-autocmd BufNewFile,BufReadPost *.md setl filetype=markdown shiftwidth=2 tabstop=2 spell
+autocmd BufNewFile,BufReadPost *.md setl filetype=markdown shiftwidth=2 tabstop=2 spell textwidth=72 colorcolumn=72 wrap linebreak
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2
 autocmd BufNewFile,BufReadPost *.litcoffee setl shiftwidth=2 tabstop=2
 autocmd BufNewFile,BufReadPost Cakefile setl shiftwidth=2 tabstop=2
