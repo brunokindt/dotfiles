@@ -4,8 +4,8 @@ dst_default=$HOME
 #dst_default=`mktemp -d`
 echo "dotfile destination is $dst_default"
 
-#mkdir -p $dst_default/Local/script
-#mkdir -p $dst_default/Local/src
+mkdir $dst_default/Local
+mkdir $dst_default/Local/src
 #mkdir -p $dst_default/Library/notes
 #mkdir -p $dst_default/Library/projects
 
@@ -39,7 +39,7 @@ linkResource ".gemrc"
 #linkResource ".gitignore"
 #linkResource ".gitconfig"
 #linkResource ".zshrc"
-#linkResource "script" "$dst_default/Local"
+linkResource "script" "$dst_default/Local"
 #linkResource ".i3"
 #linkResource ".config/ranger"
 #linkResource ".config/awesome"
