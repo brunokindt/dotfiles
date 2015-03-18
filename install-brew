@@ -10,4 +10,5 @@ brew install macvim
 brew install wget
 brew cask install virtualbox
 brew cask install vagrant
-
+brew cask install iterm2
+brew cask install java
