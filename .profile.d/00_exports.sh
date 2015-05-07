@@ -30,6 +30,10 @@ alias svnup='date;svn update'
 # ack
 export ACK_COLOR_MATCH="bold magenta"
 
+if [ -d "/usr/local/heroku/bin" ]; then
+    PATH="/usr/local/heroku/bin:$PATH"
+fi
+
 # update path
 if [ -d "$HOME/Local/bin" ]; then
     PATH="$HOME/Local/bin:$PATH"
