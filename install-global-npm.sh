@@ -40,3 +40,5 @@ npm install -g jade
 npm install -g protractor
 # browserify
 npm install -g browserify
+# markdown
+npm install -g marked
