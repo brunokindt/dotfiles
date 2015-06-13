@@ -61,12 +61,30 @@ modkey = "Mod1"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
-    awful.layout.suit.floating,
-    awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal
+    -- awful.layout.suit.tile.top,
+    -- awful.layout.suit.floating,
+    -- awful.layout.suit.fair,
+    -- awful.layout.suit.fair.horizontal
+
+    -- new layouts - lain.layout.centerfair throws error
+    -- lain.layout.uselesstile
+    -- lain.layout.termfair,
+    -- lain.layout.centerfair
+    -- awful.layout.suit.tile,
+    -- awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.top,
+    -- awful.layout.suit.floating,
+    -- awful.layout.suit.fair,
+    -- awful.layout.suit.fair.horizontal
+    -- lain.layout.cascade,
+    -- lain.layout.cascadetile,
+    -- lain.layout.centerwork,
+    -- lain.layout.uselessfair,
+    -- lain.layout.uselesspiral,
+    -- lain.layout.uselesstile
 }
 -- }}}
 
@@ -115,6 +133,14 @@ alert = "#feb41c"
 
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
+
+-- vbox widget (show the number or running virtualbox vm's)
+--vboxwidget = lain.widgets.vbox({
+----  cmd = "vboxmanage list runningvms | lw -l",
+--  settings = function()
+--    widget:set_markup( "output" )
+--  end
+--})
 
 -- battery widget
 batterywidget = lain.widgets.bat({
@@ -218,6 +244,7 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+    -- right_layout:add(vboxwidget)
     right_layout:add(batterywidget)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
@@ -394,6 +421,8 @@ awful.rules.rules = {
     { rule = { class = "pinentry" },
       properties = { floating = true } },
     { rule = { class = "gimp" },
+      properties = { fullscreen = true } },
+    { rule = { class = "Vlc" },
       properties = { floating = true } },
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- { rule = { class = "Firefox" },

@@ -104,6 +104,13 @@ theme.layout_tiletop = "/usr/local/share/awesome/themes/default/layouts/tiletopw
 theme.layout_spiral  = "/usr/local/share/awesome/themes/default/layouts/spiralw.png"
 theme.layout_dwindle = "/usr/local/share/awesome/themes/default/layouts/dwindlew.png"
 
+theme.lain_icons         = os.getenv("HOME") .. "/.config/awesome/lain/icons/layout/default/"
+theme.layout_termfair    = theme.lain_icons .. "termfairw.png"
+theme.layout_cascade     = theme.lain_icons .. "cascadew.png"
+theme.layout_cascadetile = theme.lain_icons .. "cascadetilew.png"
+theme.layout_centerwork  = theme.lain_icons .. "centerworkw.png"
+theme.layout_centerfair = theme.lain_icons .. "centerfairw.png"
+
 theme.awesome_icon = "/usr/local/share/awesome/icons/awesome16.png"
 
 -- Define the icon theme for application icons. If not set then the icons

@@ -3,13 +3,14 @@
 # requires [nodemon](https://github.com/remy/nodemon) to use watch
 
 start() {
-  Xephyr -ac -br -noreset -screen 1200x800 :1 &
+  #Xephyr -ac -br -noreset -screen 1200x800 :1 &
+  Xephyr -ac -br -noreset -screen 800x600 :1 &
   sleep 1
   DISPLAY=:1.0 setxkbmap be
   #DISPLAY=:1.0 awesome -c ~/.config/awesome/rc.lua &
   DISPLAY=:1.0 awesome &
-  DISPLAY=:1.0 konsole &
-  DISPLAY=:1.0 konsole &
+  #DISPLAY=:1.0 konsole &
+  #DISPLAY=:1.0 konsole &
 }
 
 stop() {
@@ -26,7 +27,9 @@ restart() {
 
 watch() {
   DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-  nodemon --ext lua --watch "$DIR/../src" --exec "$DIR/dummy_wm restart"
+  $DIR/dummy_wm.sh stop
+  $DIR/dummy_wm.sh start
+  nodemon --ext lua --watch "$DIR/.." --exec "$DIR/dummy_wm.sh restart"
 }
 
 case "$1" in
