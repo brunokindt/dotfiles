@@ -2,9 +2,9 @@ alias lastnotes='find $NOTES -maxdepth 1 -mtime -2 -type f -iname "note_*" -exec
 alias ls="ls --color=auto"
 alias xlock="xlock -mode blank"
 alias nowplaying="ncmpcpp --now-playing"
-alias chromium-proxy="chromium-browser --proxy-server=\"http://127.0.0.1:8888\""
+alias chrome-proxy="google-chrome --proxy-server=\"http://127.0.0.1:8888\""
 alias startDropbox="$HOME/.dropbox-dist/dropboxd"
-alias scpToStore="rsync -av -e ssh --progress --remove-source-files $HOME/Downloads/toStore/ pan@huggin:/home/pan/toStore"
+alias scpToStore="rsync -av -e ssh --progress --remove-source-files /mnt/garden/toStore/ huggin:/mnt/library/Library/toStore"
 alias urxvt="urxvt256c-ml -geometry 180x40 "
 alias now='date +"%Y-%m-%d %H:%M"'
 alias playmp3='for i in *.mp3; do mplayer "$i"; done'
@@ -35,3 +35,9 @@ fi
 if hash optirun 2> /dev/null; then
   alias vlc="optirun vlc"
 fi
+
+set_konsole_title() {
+  echo -ne "\033]30;$1\007"
+}
+
+alias npms='npm install --save '

@@ -12,6 +12,10 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-# ctrl-w remove word backwards
-# bindkey '^w' backward-kill-word
+ #ctrl-w remove word backwards
+ bindkey '^w' backward-kill-word
+
+if [ -f "$SRC/git-flow-completion" ]; then
+    source "$SRC/git-flow-completion/git-flow-completion.zsh"
+fi
 
