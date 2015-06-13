@@ -4,10 +4,10 @@ dst_default=$HOME
 #dst_default=`mktemp -d`
 echo "dotfile destination is $dst_default"
 
-mkdir -p $dst_default/Local/script
-mkdir -p $dst_default/Local/src
-mkdir -p $dst_default/Library/notes
-mkdir -p $dst_default/Library/projects
+mkdir $dst_default/Local
+mkdir $dst_default/Local/src
+#mkdir -p $dst_default/Library/notes
+#mkdir -p $dst_default/Library/projects
 
 function linkResource {
     local src=$1
@@ -31,18 +31,23 @@ function linkResource {
     fi
 }
 
-linkResource ".vim"
-linkResource ".vimrc"
-linkResource ".profile.d"
-linkResource ".bashrc"
+#linkResource ".vim"
+#linkResource ".vimrc"
+#linkResource ".profile.d"
+#linkResource ".bashrc"
 linkResource ".gemrc"
-linkResource ".gitignore"
-linkResource ".gitconfig"
-linkResource ".zshrc"
+#linkResource ".gitignore"
+#linkResource ".gitconfig"
+#linkResource ".zshrc"
 linkResource "script" "$dst_default/Local"
-linkResource ".i3"
-linkResource ".config/ranger"
-linkResource ".config/awesome"
+#linkResource ".i3"
+#linkResource ".config/ranger"
+#linkResource ".config/awesome"
+
+UNAME="$(uname)"
+if [ "$UNAME" == "Darwin" ]; then
+  linkResource ".envrc"
+fi
 
 ternForVimDir=".vim/bundle/tern_for_vim"
 if [ -d "$ternForVimDir" ] && [ -f "$ternForVimDir/package.json" ]; then

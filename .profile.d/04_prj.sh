@@ -1,5 +1,5 @@
 prj-edit() {
-  vimx --servername PRJ
+  $EDITOR --servername PRJ
 }
 
 prj-set() {
@@ -18,20 +18,20 @@ prj-ls() {
 }
 
 prj-add() {
-  vimx --servername PRJ --remote-tab $1
+  $EDITOR --servername PRJ --remote-tab $1
 }
 prj-notes() {
-  cd $NOTES;vimx --servername NOTES
+  cd $NOTES;$EDITOR --servername NOTES
 }
 
 prj-journo() {
   cd $JOURNO/bootstrap/posts;
-  vimx --servername JOURNO
+  $EDITOR --servername JOURNO
 }
 
 prj-jekyll-edit() {
   cd $JEKYLL/src/_posts
-  vimx --servername JEKYLL
+  $EDITOR --servername JEKYLL
 }
 
 prj-jekyll-new() {
@@ -40,13 +40,13 @@ prj-jekyll-new() {
   cd $FILEPATH
   VIM_SERVER_NAME="JEKYLL"
   if [ -t 1 ]; then
-    if [ "`vimx --serverlist | grep -i $VIM_SERVER_NAME`" = "" ]; then
+    if [ "`$EDITOR --serverlist | grep -i $VIM_SERVER_NAME`" = "" ]; then
       $VIM_CMD --servername $VIM_SERVER_NAME "${FILEPATH}/${FILENAME}"
     else
       $VIM_CMD --servername $VIM_SERVER_NAME --remote-tab "${FILEPATH}/${FILENAME}"
     fi
   else
-    $TERMCMD -e vim "${FILEPATH}/${FILENAME}"
+    $TERMCMD -e $EDITOR "${FILEPATH}/${FILENAME}"
   fi
 }
 
