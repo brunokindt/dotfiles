@@ -31,18 +31,16 @@ function linkResource {
     fi
 }
 
-#linkResource ".vim"
-#linkResource ".vimrc"
-#linkResource ".profile.d"
-#linkResource ".bashrc"
+linkResource ".vim"
+linkResource ".vimrc"
+linkResource ".profile.d"
+linkResource ".bashrc"
 linkResource ".gemrc"
-#linkResource ".gitignore"
-#linkResource ".gitconfig"
-#linkResource ".zshrc"
+linkResource ".zshrc"
 linkResource "script" "$dst_default/Local"
-#linkResource ".i3"
-#linkResource ".config/ranger"
-#linkResource ".config/awesome"
+linkResource ".i3"
+linkResource ".config/ranger"
+linkResource ".config/awesome"
 
 UNAME="$(uname)"
 if [ "$UNAME" == "Darwin" ]; then
