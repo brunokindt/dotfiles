@@ -505,4 +505,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 
 -- STARTUP SCRIPT
-awful.util.spawn(os.getenv("HOME") .. "/Library/scripts/startup")
+awful.util.spawn(os.getenv("SCRIPT") .. "/startup")
