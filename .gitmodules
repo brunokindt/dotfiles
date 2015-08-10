@@ -13,12 +13,6 @@
 [submodule ".vim/bundle/vim-javascript"]
 	path = .vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
-[submodule "script/z"]
-	path = script/z
-	url = https://github.com/rupa/z.git
-[submodule "script/bd"]
-	path = script/bd
-	url = https://github.com/vigneshwaranr/bd.git
 [submodule ".vim/bundle/editorconfig-vim"]
 	path = .vim/bundle/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim
