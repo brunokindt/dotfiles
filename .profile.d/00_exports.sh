@@ -16,8 +16,6 @@ export EDITOR="vimx"
 export TERMCMD="konsole"  # for awesome wm
 export TERMINAL="konsole" # for i3 wm
 
-export GREP_OPTIONS='--exclude-dir=".svn" -rn --color'
-
 # version control
 alias sdv='svn diff | vim -R -'
 alias svs="date;svn status | sort | ack -v '^X ' | ack '^ ?. '"
