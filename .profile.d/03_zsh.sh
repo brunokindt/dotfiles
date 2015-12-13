@@ -1,4 +1,8 @@
+# Not zsh?
+[ -n "$ZSH_VERSION" ] || return 0
+
 # Lines configured by zsh-newuser-install
+
 bindkey -v  # zsh vi mode
 unsetopt beep
 export KEYTIMEOUT=1     # reduce <esc> lag to 0.1 seconds
