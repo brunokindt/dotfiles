@@ -1,0 +1,31 @@
+[$Version]
+update_info=konsole.upd:2.9.0-global-options
+
+[Colors]
+CurrentPalette=Forty Colors
+
+[Desktop Entry]
+DefaultProfile=dark pastek.profile
+
+[Favorite Profiles]
+Favorites=dark blue.profile,dark red.profile,gray.profile,Solarized Light.profile,light-a.profile,gulp watch.profile,dark black.profile,light-b.profile,Solarized.profile,dark pastek.profile,light.profile,zsh.profile,ms-blue.profile,Shell.profile
+
+[KonsoleWindow]
+ShowMenuBarByDefault=false
+
+[MainWindow]
+Height 1080=1059
+Height 600=579
+Height 800=779
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAABB4AAAQjAAAABAAAAAQAAAAIAAAACPwAAAAA
+ToolBarsMovable=Disabled
+Width 1200=1198
+Width 1920=1054
+Width 800=798
+
+[Notification Messages]
+ShowPasteHugeTextWarning=false
+
+[TabBar]
+TabBarVisibility=ShowTabBarWhenNeeded
