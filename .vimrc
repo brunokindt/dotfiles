@@ -36,12 +36,14 @@ set laststatus=2            " always show statusline
 set background=dark
 set cursorline
 
+set noswapfile
+
 " spell-checking
-:setlocal spell spelllang=en_us
+":setlocal spell spelllang=en_us
 
 " CtrlP
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|node_modules$\|build$\|dist$\|.tmp$',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|node_modules$\|build$\|dist$\|.tmp$\|coverage$\|platforms$\|_boiler$\|platforms$\|plugins$\|bower_components$',
   \ 'file': '\.so$\|\.dat$\|.swp$'
   \ }
 let g:ctrlp_show_hidden = 1
@@ -52,10 +54,11 @@ let g:solarized_termcolors=256
 " jshint2
 let jshint2_save = 1
 
-colorscheme badwolf
+"colorscheme badwolf
 let g:badwolf_darkgutter = 1
-let g:badwolf_darkbackground = 0
+let g:badwolf_darkbackground = 1
 "colorscheme tomorrow2
+colorscheme badwolf
 
 syntax enable
 set complete+=kspell
