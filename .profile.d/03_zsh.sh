@@ -4,6 +4,7 @@
 # Lines configured by zsh-newuser-install
 
 bindkey -v  # zsh vi mode
+
 unsetopt beep
 export KEYTIMEOUT=1     # reduce <esc> lag to 0.1 seconds
 
@@ -17,7 +18,9 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
  #ctrl-w remove word backwards
- bindkey '^w' backward-kill-word
+bindkey "^w" backward-kill-word
+bindkey "^R" history-incremental-search-backward
+bindkey "^P" history-search-backward
 
 if [ -f "$SRC/git-flow-completion" ]; then
     source "$SRC/git-flow-completion/git-flow-completion.zsh"

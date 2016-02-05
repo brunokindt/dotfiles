@@ -10,6 +10,7 @@ alias now='date +"%Y-%m-%d %H:%M"'
 alias playmp3='for i in *.mp3; do mplayer "$i"; done'
 alias h='history | grep'
 alias ranger='python $SRC/ranger/ranger.py'
+alias week='/bin/date +%V'
 
 if [ -f "$SCRIPT/v/v.sh" ]; then
     . "$SCRIPT/v/v.sh"
