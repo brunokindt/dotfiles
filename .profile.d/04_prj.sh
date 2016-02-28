@@ -57,8 +57,51 @@ prj-jekyll() {
   esac
 }
 
+
+_log_info() {
+  echo "$(tput setaf 4)$1$(tput sgr 0)"
+}
+
+_log_success() {
+  echo "$(tput setaf 2)$1$(tput sgr 0)"
+}
+
+_log_warn() {
+  echo "$(tput setaf 5)$1$(tput sgr 0)"
+}
+
+prj-boiler() {
+  case "$1" in
+      ls) prj-boiler-ls ;;
+      *) prj-boiler-new;;
+  esac
+}
+
+prj-boiler-ls() {
+  find -L $PRJ -type l
+}
+
+prj-boiler-new() {
+  _log_info "Set boiler"  
+  BOILER_PATH="${PRJ}/prj.boiler/links"
+  PRJ_PATH=`pwd`
+  BOILER_PRJ_PATH="${BOILER_PATH}/`date +%Y-%m-%d-`$RANDOM"
+
+  if [ -d "_boiler" ]; then
+    _log_warn "Boiler already exists"
+    return 
+  fi
+
+  if [ ! -d "${BOILER_PRJ_PATH}" ]; then
+    mkdir -p ${BOILER_PRJ_PATH}
+    ln -s ${BOILER_PRJ_PATH} "_boiler"
+    _log_success "Boiler path set to ${BOILER_PRJ_PATH}" 
+  fi
+
+}
+
 prj-usage() {
-  echo "Usage: prj {edit|set|get|ls|add|notes|journo|jekyll|jekyll new|jekyll edit}"
+  echo "Usage: prj {edit|set|get|ls|add|notes|journo|jekyll|jekyll new|jekyll edit|boiler}"
 }
 
 prj() {
@@ -71,6 +114,7 @@ prj() {
       notes) prj-notes ;;
       journo) prj-journo ;;
       jekyll) prj-jekyll $2 ;;
+      boiler) prj-boiler $2 ;;
       *) prj-usage;;
   esac
 }
