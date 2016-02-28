@@ -65,7 +65,7 @@ prj-jekyll-new() {
 prj-jekyll() {
   case "$1" in
       new) prj-jekyll-new ;;
-      *) prj-jekyll-edit;;
+      *) prj-jekyll-edit ;;
   esac
 }
 
@@ -73,7 +73,7 @@ prj-boiler() {
   case "$1" in
       ls) prj-boiler-ls ;;
       info) prj-boiler-info ;;
-      *) prj-boiler-new;;
+      *) prj-boiler-add ;;
   esac
 }
 
@@ -89,7 +89,7 @@ prj-boiler-ls() {
   fi
 }
 
-prj-boiler-new() {
+prj-boiler-add() {
   _log_info "Set boiler"  
   BOILER_PATH="${PRJ}/prj.boiler/links"
   PRJ_PATH=`pwd`
@@ -110,13 +110,13 @@ prj-boiler-new() {
 
 prj-hooks() {
   case "$1" in
-    new) prj-hooks-new ;;
+    add) prj-hooks-add ;;
     ls) prj-hooks-ls ;;
     *) prj-hooks-ls ;;
   esac
 }
 
-prj-hooks-new() {
+prj-hooks-add() {
   HOOKS_DIR=".git/hooks"
   BOILER_HOOKS_DIR="$PRJ/prj.boiler/hooks"
 
