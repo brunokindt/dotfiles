@@ -12,7 +12,8 @@ export PRJ=$HOME/Library/projects
 export HAIDEN=$PRJ/haiden
 
 #export RANGER_LOAD_DEFAULT_RC="FALSE"
-export EDITOR="vimx"
+#export EDITOR="vimx"
+export EDITOR="nvim"
 export TERMCMD="konsole"  # for awesome wm
 export TERMINAL="konsole" # for i3 wm
 

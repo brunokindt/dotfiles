@@ -10,6 +10,7 @@ alias now='date +"%Y-%m-%d %H:%M"'
 alias playmp3='for i in *.mp3; do mplayer "$i"; done'
 alias h='history | grep'
 alias ranger='python $SRC/ranger/ranger.py'
+alias hasVim='ps aux | grep -i vim'
 
 if [ -f "$SCRIPT/v/v.sh" ]; then
     . "$SCRIPT/v/v.sh"
@@ -35,3 +36,9 @@ fi
 if hash optirun 2> /dev/null; then
   alias vlc="optirun vlc"
 fi
+
+git_delen_issue() {
+  git flow feature start issue-#$1
+}
+
+alias __git_issue=git_delen_issue
