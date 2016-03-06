@@ -1,4 +1,5 @@
 [Appearance]
+AntiAliasFonts=true
 BoldIntense=false
 ColorScheme=DarkPastels
 Font=DejaVu Sans Mono,7.5,-1,5,50,0,0,0,0,0

@@ -5,23 +5,23 @@ update_info=konsole.upd:2.9.0-global-options
 CurrentPalette=Forty Colors
 
 [Desktop Entry]
-DefaultProfile=dark pastek.profile
+DefaultProfile=dark pastel.profile
 
 [Favorite Profiles]
-Favorites=dark pastek.profile,dark black.profile,dark blue.profile
+Favorites=dark blue.profile,dark pastel.profile,dark black.profile
 
 [KonsoleWindow]
 ShowMenuBarByDefault=false
 
 [MainWindow]
-Height 1080=1059
+Height 1080=355
 Height 600=579
 Height 800=779
 MenuBar=Disabled
 State=AAAA/wAAAAD9AAAAAAAAAv4AAAQjAAAABAAAAAQAAAAIAAAACPwAAAAA
 ToolBarsMovable=Disabled
 Width 1200=1198
-Width 1920=766
+Width 1920=1150
 Width 800=798
 
 [Notification Messages]
