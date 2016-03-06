@@ -1,0 +1,107 @@
+Xlock*mode: blank
+
+!XTerm*color4: rgb:00/00/cc
+!XTerm*color5: rgb:cc/00/cc
+!XTerm*color6: rgb:00/cc/cc
+!XTerm*color7: rgb:aa/aa/aa
+!XTerm*color8: rgb:33/33/33
+!XTerm*color9: rgb:ff/00/00
+!XTerm*color10: rgb:00/ff/00
+!XTerm*color11: rgb:ff/ff/00
+!XTerm*color12: rgb:00/00/ff
+!XTerm*color13: rgb:ff/00/ff
+!XTerm*color14: rgb:00/ff/ff
+!XTerm*color15: rgb:ff/ff/ff
+!XTerm*faceName: Bitstream Vera Serif Mono
+
+!Theme Two
+*background: rgb:0a/0a/0a
+*foreground: rgb:7f/7f/7f
+*color0:     rgb:00/00/00
+*color1:     rgb:9e/18/28
+*color2:     rgb:ae/ce/92
+*color3:     rgb:96/8a/38
+*color4:     rgb:41/41/71
+*color5:     rgb:96/3c/59
+*color6:     rgb:41/81/79
+*color7:     rgb:be/be/be
+*color8:     rgb:66/66/66
+*color9:     rgb:cf/61/71
+*color10:    rgb:c5/f7/79
+*color11:    rgb:ff/f7/96
+*color12:    rgb:41/86/be
+*color13:    rgb:cf/9e/be
+*color14:    rgb:71/be/be
+*color15:    rgb:ff/ff/ff
+!
+!
+xterm*background: 		            black
+xterm*foreground: 		            white
+!xterm*faceName: 	                monospace
+xterm*faceName:		                xft:DejaVu Sans Mono:pixelsize=11:antialias=true:hinting=true
+xterm*faceSize: 	                8
+xterm*dynamicColors:	            true
+xterm*utf8:                         2
+xterm*eightBitInput:                true
+xterm*saveLines:                    512
+xterm*scrollTtyKeypress:            true
+xterm*scrollTtyOutput:              false
+xterm*scrollBar:                    true
+xterm*rightScrollBar:               true
+xterm*loginShell:                   false 
+xterm*jumpScroll:                   true
+xterm*multiScroll:                  true
+xterm*toolBar:                      false
+xterm*borderwidth:		            0
+!
+! General
+urxvt256c.scrollSstyle:             plain
+!!scroll in full-screen apps
+urxvt256c.secondaryScroll:          true
+!urxvt256c-ml*termName:             rxvt-256color
+urxvt256c-ml*loginShell:            false 
+urxvt256c-ml*secondaryScroll:       true
+urxvt256c-ml*saveLines:             65535
+urxvt256c-ml*cursorBlink:           false
+urxvt256c-ml*urgentOnBell:          true
+!urxvt256c-ml*override-redirect:    false
+!urxvt256c-ml*borderLess:           false
+!urxvt256c-ml*internalBorder:       0
+!urxvt256c-ml*externalBorder:       0
+!
+! Extensions
+urxvt256c-ml*perl-lib:              /usr/lib64/urxvt/perl/
+!urxvt256c-ml*perl-ext-common:       default,matcher,searchable-scrollback,digital-clock 
+urxvt256c-ml*perl-ext-common:       default,matcher,searchable-scrollback
+urxvt256c-ml*urlLauncher:           /usr/bin/chromium-browser
+urxvt256c-ml*matcher.button:        1
+urxvt256c-ml*font:		              xft:DejaVu Sans Mono:pixelsize=10:antialias=true:hinting=true
+!urxvt256c-ml*font:		              xft:inconsolata:pixelsize=10:antialias=true:hinting=true
+!urxvt256c-ml*font:		              xft:terminus:pixelsize=12:antialias=true:hinting=true
+!urxvt256c-ml*boldFont:		          xft:terminus:pixelsize=12:antialias=true:bold:hinting=true
+!urxvt256c-ml*italicFont:	          xft:terminus:pixelsize=12:antialias=true:italic:autohint=true:hinting=true
+!urxvt256c-ml*bolditalicFont:	      xft:terminus:pixelsize=12:antialias=true:bold:italic:autohint=true:hinting=true
+urxvt256c-ml*cursorColor:           #DCDCCC
+urxvt256c-ml*jumpScroll:            true
+urxvt256c-ml*scrollBar:             false 
+urxvt256c-ml*scrollBar_right:       true
+urxvt256c-ml*background:            #111111
+!urxvt256c-ml*background:            #2C2C2C
+!urxvt256c-ml*foreground:           #EBEBFF
+urxvt256c-ml*foreground:            #DCDCCC
+urxvt256c-ml*color0:	              #000000
+urxvt256c-ml*color1:                #e01010
+urxvt256c-ml*color2:                #00AA00
+urxvt256c-ml*color3:                #FFFF00
+urxvt256c-ml*color4:                #112037
+urxvt256c-ml*color5:                #A020F0
+urxvt256c-ml*color6:                #5B5BC7
+urxvt256c-ml*color7:                #fefefe
+urxvt256c-ml*color8:                #6a6a6a
+urxvt256c-ml*color9:                #FF5555
+urxvt256c-ml*color10:               #90EE90
+urxvt256c-ml*color11:               #ffff2f
+urxvt256c-ml*color12:               #5B5BC7
+urxvt256c-ml*color13:               #e628ba
+urxvt256c-ml*color14:               #7D7DFB
+urxvt256c-ml*color15:               #ffffff
