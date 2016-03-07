@@ -4,4 +4,4 @@ for file in $HOME/.profile.d/login/*.sh; do
 done
 unset file
 
-xrdb --merge ~/.Xdefaults
+xrdb -merge ~/.Xdefaults
