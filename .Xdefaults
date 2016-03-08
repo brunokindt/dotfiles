@@ -75,7 +75,7 @@ urxvt256c-ml*perl-lib:              /usr/lib64/urxvt/perl/
 urxvt256c-ml*perl-ext-common:       default,matcher,searchable-scrollback
 urxvt256c-ml*urlLauncher:           /usr/bin/chromium-browser
 urxvt256c-ml*matcher.button:        1
-urxvt256c-ml*font:		              xft:DejaVu Sans Mono:pixelsize=10:antialias=true:hinting=true
+urxvt256c-ml*font:		              xft:DejaVu Sans Mono:pixelsize=9:antialias=true:hinting=true
 !urxvt256c-ml*font:		              xft:inconsolata:pixelsize=10:antialias=true:hinting=true
 !urxvt256c-ml*font:		              xft:terminus:pixelsize=12:antialias=true:hinting=true
 !urxvt256c-ml*boldFont:		          xft:terminus:pixelsize=12:antialias=true:bold:hinting=true
