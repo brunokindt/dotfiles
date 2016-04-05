@@ -33,7 +33,7 @@ function linkResource {
 
 #linkResource ".vim"
 #linkResource ".vimrc"
-#linkResource ".profile.d"
+linkResource ".profile.d"
 #linkResource ".bashrc"
 linkResource ".gemrc"
 #linkResource ".gitignore"
@@ -43,6 +43,9 @@ linkResource "script" "$dst_default/Local"
 #linkResource ".i3"
 #linkResource ".config/ranger"
 #linkResource ".config/awesome"
+
+ln -s $HOME/.vim $HOME/.nvim
+ln $HOME/.vimrc $HOME/.nvimrc
 
 UNAME="$(uname)"
 if [ "$UNAME" == "Darwin" ]; then
