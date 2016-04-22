@@ -11,6 +11,9 @@ alias playmp3='for i in *.mp3; do mplayer "$i"; done'
 alias h='history | grep'
 alias ranger='python $SRC/ranger/ranger.py'
 alias week='/bin/date +%V'
+# clear urxvt scrollback
+alias cls="echo -ne '\033c'"
+alias nyaovim="cd $PRJ/boiler/NyaoVim/ && npm run app && cd -"
 
 if [ -f "$SCRIPT/v/v.sh" ]; then
     . "$SCRIPT/v/v.sh"
@@ -41,4 +44,8 @@ set_konsole_title() {
   echo -ne "\033]30;$1\007"
 }
 
-alias npms='npm install --save '
+alias _do_npms='npm install --save-develop '
+
+function _do_grep {
+ grep -iR "$1" --exclude "*/bower_components/*" --exclude "*/.tmp/*" --color "$2" 
+}
