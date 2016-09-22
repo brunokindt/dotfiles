@@ -35,7 +35,6 @@ linkResource ".profile.d"
 linkResource ".bashrc"
 linkResource ".gemrc"
 linkResource ".zshrc"
-linkResource "script" "$dst_default/Local"
 linkResource ".config/i3"
 linkResource ".config/ranger"
 
