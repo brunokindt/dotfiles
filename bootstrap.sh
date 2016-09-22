@@ -38,7 +38,6 @@ linkResource ".zshrc"
 linkResource "script" "$dst_default/Local"
 linkResource ".config/i3"
 linkResource ".config/ranger"
-linkResource ".config/awesome"
 
 UNAME="$(uname)"
 if [ "$UNAME" == "Darwin" ]; then
