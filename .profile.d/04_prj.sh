@@ -23,6 +23,17 @@ prj-get() {
   cd `cat $PRJ/current`
 }
 
+prj-n() {
+  FPATH_N="$(($1+1))"
+  FPATH=`tail -n "$FPATH_N" $PRJ/history | head -n 1 | awk 'BEGIN { FS = "\t" } ; { print $2 }'`
+  if [ -z $FPATH ]; then
+    _log_warn "No directory found" 
+  else
+    _log_success "Using $FPATH" 
+    cd $FPATH 
+  fi
+}
+
 prj-ls() {
   _log_info "LIST"
   awk 'BEGIN { FS = "\t" } ; { print $2 }' $PRJ/history | sort | uniq
@@ -169,9 +180,10 @@ prj() {
       edit) prj-edit ;;
       set) prj-set ;;
       get) prj-get ;;
+      n) prj-n $2 ;;
       ls) prj-ls ;;
-      add) prj-add $2;;
-      notes) prj-notes $2;;
+      add) prj-add $2 ;;
+      notes) prj-notes $2 ;;
       boiler) prj-boiler $2 ;;
       hooks) prj-hooks $2 ;;
       task) prj-task $@ ;;
