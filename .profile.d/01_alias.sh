@@ -49,3 +49,7 @@ alias _do_npms='npm install --save-develop '
 function _do_grep {
  grep -iR "$1" --exclude "*/bower_components/*" --exclude "*/.tmp/*" --color "$2" 
 }
+
+alias _do_gcd='gulp components:develop'
+alias _do_docker-machine_eval='eval "$(docker-machine env default)"'
+alias _do_ls_ports='netstat -lnt'
