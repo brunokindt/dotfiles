@@ -11,7 +11,8 @@ _log_warn() {
 }
 
 prj-edit() {
-  $EDITOR --servername PRJ
+  cd `cat $PRJ/current`
+  $EDITOR 
 }
 
 prj-set() {
@@ -22,50 +23,44 @@ prj-get() {
   cd `cat $PRJ/current`
 }
 
+prj-n() {
+  FPATH_N="$(($1+1))"
+  FPATH=`tail -n "$FPATH_N" $PRJ/history | head -n 1 | awk 'BEGIN { FS = "\t" } ; { print $2 }'`
+  if [ -z $FPATH ]; then
+    _log_warn "No directory found" 
+  else
+    _log_success "Using $FPATH" 
+    cd $FPATH 
+  fi
+}
+
 prj-ls() {
-  echo "current:"
-  cat $PRJ/current
-  echo "history:"
-  cat $PRJ/history
+  _log_info "LIST"
+  awk 'BEGIN { FS = "\t" } ; { print $2 }' $PRJ/history | sort | uniq
+  _log_info "HISTORY"
+  tail -n 10 $PRJ/history
 }
 
-prj-add() {
-  $EDITOR --servername PRJ --remote-tab $1
-}
-prj-notes() {
-  cd $NOTES;$EDITOR --servername NOTES
+prj-notes-edit() {
+  FILEPATH="${NOTES}/src/_posts"
+  $EDITOR "${FILEPATH}"
 }
 
-prj-journo() {
-  cd $JOURNO/bootstrap/posts;
-  $EDITOR --servername JOURNO
-}
-
-prj-jekyll-edit() {
-  cd $JEKYLL/src/_posts
-  $EDITOR --servername JEKYLL
-}
-
-prj-jekyll-new() {
+prj-notes-new() {
   FILENAME="`date +%Y-%m-%d-untiteld_%s`.md"
-  FILEPATH="${JEKYLL}/src/_posts"
+  FILEPATH="${NOTES}/src/_posts"
   cd $FILEPATH
-  VIM_SERVER_NAME="JEKYLL"
   if [ -t 1 ]; then
-    if [ "`$EDITOR --serverlist | grep -i $VIM_SERVER_NAME`" = "" ]; then
-      $VIM_CMD --servername $VIM_SERVER_NAME "${FILEPATH}/${FILENAME}"
-    else
-      $VIM_CMD --servername $VIM_SERVER_NAME --remote-tab "${FILEPATH}/${FILENAME}"
-    fi
+      $EDITOR "${FILEPATH}/${FILENAME}"
   else
     $TERMCMD -e $EDITOR "${FILEPATH}/${FILENAME}"
   fi
 }
 
-prj-jekyll() {
+prj-notes() {
   case "$1" in
-      new) prj-jekyll-new ;;
-      *) prj-jekyll-edit ;;
+      new) prj-notes-new ;;
+      *) prj-notes-edit ;;
   esac
 }
 
@@ -159,7 +154,25 @@ prj-hooks-ls() {
 }
 
 prj-usage() {
-  echo "Usage: prj {edit|set|get|ls|add|notes|journo|jekyll|jekyll new|jekyll edit|boiler|hooks}"
+  echo "Usage: prj {edit|set|get|ls|add|notes|notes new|notes edit|boiler|hooks}"
+}
+
+prj-task() {
+  echo $2
+  case "$2" in
+    add) prj-task-add $3 ;;
+    ls) prj-task-list $2 ;;
+    *) echo "nope" ;;
+  esac
+}
+
+prj-task-add() {
+  #task add project:"$(basename $(cat $PRJ/current))" 
+  echo "Add $(basename $(cat $PRJ/current))"
+  echo $1
+}
+
+prj-task-ls() {
 }
 
 prj() {
@@ -167,13 +180,13 @@ prj() {
       edit) prj-edit ;;
       set) prj-set ;;
       get) prj-get ;;
+      n) prj-n $2 ;;
       ls) prj-ls ;;
-      add) prj-add $2;;
-      notes) prj-notes ;;
-      journo) prj-journo ;;
-      jekyll) prj-jekyll $2 ;;
+      add) prj-add $2 ;;
+      notes) prj-notes $2 ;;
       boiler) prj-boiler $2 ;;
       hooks) prj-hooks $2 ;;
+      task) prj-task $@ ;;
       *) prj-usage;;
   esac
 }

@@ -1,20 +1,5 @@
-alias lastnotes='find $NOTES -maxdepth 1 -mtime -2 -type f -iname "note_*" -exec vimx --servername NOTES --remote-tab {} +'
-alias ls="ls --color=auto"
-alias xlock="xlock -mode blank"
-alias nowplaying="ncmpcpp --now-playing"
-alias chromium-proxy="chromium-browser --proxy-server=\"http://127.0.0.1:8888\""
-alias startDropbox="$HOME/.dropbox-dist/dropboxd"
-alias scpToStore="rsync -av -e ssh --progress --remove-source-files $HOME/Downloads/toStore/ pan@huggin:/home/pan/toStore"
-alias urxvt="urxvt256c-ml -geometry 180x40 "
 alias now='date +"%Y-%m-%d %H:%M"'
-alias playmp3='for i in *.mp3; do mplayer "$i"; done'
-alias h='history | grep'
-alias ranger='python $SRC/ranger/ranger.py'
-alias hasVim='ps aux | grep -i vim'
-
-if [ -f "$SCRIPT/v/v.sh" ]; then
-    . "$SCRIPT/v/v.sh"
-fi
+alias week='/bin/date +%V'
 
 # z will take you to the most 'frecent' directory that matches ALL of the regexes given on the command line
 # example
@@ -32,13 +17,9 @@ if [ -f "$SRC/bd/bd" ]; then
     alias bd=". $SRC/bd/bd -s"
 fi
 
-# use optirun (Optimus hybrid graphics chipsets) if available
-if hash optirun 2> /dev/null; then
-  alias vlc="optirun vlc"
-fi
-
-git_delen_issue() {
-  git flow feature start issue-#$1
-}
-
-alias __git_issue=git_delen_issue
+alias __do_git_delete_merged_branches='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
+alias __do_mongod_start='mongod --dbpath $HOME/swamp/db'
+alias __do_open_simulator='open -n /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app' 
+alias __do_docker_eval='eval "$(docker-machine env default)"'
+alias __do_docker_boiler_eval='eval "$(docker-machine env boiler)"'
+alias __do_mysqld_stat='ln -sfv /usr/local/opt/mysql/*.plist && ~/Library/LaunchAgents && launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist'
