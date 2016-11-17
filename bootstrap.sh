@@ -69,5 +69,9 @@ wget -O .vim/colors/sorcerer.vim "https://raw.githubusercontent.com/adlawson/vim
 wget -O .vim/colors/monokai.vim "https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim"
 wget -O .vim/colors/tomorrow.vim "https://raw.githubusercontent.com/chriskempson/vim-tomorrow-theme/master/colors/Tomorrow.vim"
 
+# neovim config
+
+ln -s ~/.vim ~/.config/nvim
+ln -s $HOME/Projects/dotfiles/.vimrc ~/.config/nvim/init.vim
 
 echo "Done."

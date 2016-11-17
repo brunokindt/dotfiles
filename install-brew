@@ -2,18 +2,10 @@ brew install brew-cask
 brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
 brew install tree
 brew install htop
-brew install nvm
 brew install git
-brew install git-flow
 brew install zsh
-brew install macvim
 brew install wget
 brew cask install virtualbox
 brew cask install virtualbox-extension-pack
-brew cask install vagrant
 brew cask install iterm2
 brew cask install java
-brew cask install atom    # github editor
-
-brew tap homebrew/versions
-brew install homebrew/versions/node012
