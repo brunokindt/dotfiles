@@ -1,8 +1,8 @@
 [Appearance]
-AntiAliasFonts=false
+AntiAliasFonts=true
 BoldIntense=false
-ColorScheme=Dark blue pastels
-Font=DejaVu Sans Mono,8,-1,5,50,0,0,0,0,0
+ColorScheme=Dark blue
+Font=DejaVu Sans Mono,7.5,-1,5,50,0,0,0,0,0
 
 [General]
 Name=dark blue
