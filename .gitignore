@@ -6,3 +6,4 @@ node_modules
 .config/ranger/history
 .config/ranger/tagged
 .config/ranger/bookmarks
+.local/share/konsole/bookmarks.*

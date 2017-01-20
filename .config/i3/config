@@ -34,10 +34,12 @@ new_window 1pixel
 # Color
 set $name value
 set $color_red             "#961227"
+set $color_red_400         "#ba3737"
 set $color_brightRed       "#d00021"
 set $color_yellow          "#feb41c"
 set $color_brightYellow    "#ffd75f"
-set $color_green           "#a7c4bb"
+set $color_green_100       "#dcdccc"
+set $color_green_400       "#b6b6a9"
 # dark gray
 set $color_gray1           "#010712"
 set $color_gray2           "#13171f"
@@ -49,12 +51,12 @@ set $color_black           "#000000"
 set $color_blue            "#00a1be"
 set $color_darkBlue        "#006a9a"
 
-# class                 border      backgr.     text    indicator
-client.focused          $color_red  $color_red  #ffffff $color_red
-client.focused_inactive #333333 #5f676a #ffffff #484e50
-client.unfocused        #333333 #222222 #888888 #292d2e
-client.urgent           #2f343a #900000 #ffffff #900000
-#client.placeholder     #000000 #0c0c0c #ffffff #000000
+# class                 border          backgr.         text        indicator
+client.focused          $color_red_400  $color_red_400  #ffffff     $color_red
+client.focused_inactive $color_green_400         $color_green_400         #888888     #292d2e
+client.unfocused        $color_green_400         $color_green_400         #888888     #292d2e
+client.urgent           #2f343a         #900000         #ffffff     #900000
+#client.placeholder     #000000         #0c0c0c         #ffffff     #000000
 
 # start a terminal
 bindsym $mod+Return exec konsole
@@ -177,6 +179,7 @@ for_window [class="UE4Editor" title="Levels"] floating enable
 for_window [class="UE4Editor" title="Project Settings"] floating enable
 for_window [class="UE4Editor" title="Plugins"] floating enable
 for_window [class="UE4Editor" title="Open File"] floating enable
+for_window [class="UE4Editor" title="Unreal Project Browser"] floating enable
 
 for_window [class="vlc"] floating enable
 for_window [class="Keepassx"] floating enable
