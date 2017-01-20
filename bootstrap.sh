@@ -37,6 +37,7 @@ linkResource ".gemrc"
 linkResource ".zshrc"
 linkResource ".config/i3"
 linkResource ".config/ranger"
+linkResource ".config/dunst"
 
 UNAME="$(uname)"
 if [ "$UNAME" == "Darwin" ]; then
