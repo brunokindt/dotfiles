@@ -7,20 +7,22 @@ if [ ! -z $DISPLAY ]; then
     synclient VertScrollDelta=-111
     synclient HorizScrollDelta=-111
   
-  # NVM
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-  
   # ZEITGEIST
     if hash zeitgeist-daemon 2> /dev/null; then
         /usr/bin/zeitgeist-daemon --replace &
     fi
   
     /usr/bin/xsetroot -solid "#020202"
+    #/usr/bin/xsetroot -solid "#b6b6a9"
     xrdb -merge ~/.Xdefaults
 
     # disable gnome-ssh-askpass
     unset SSH_ASKPASS
+
+    if hash dunst 2> /dev/null; then
+      pkill dunst
+      dunst -config ~/.config/dunst/dunstrc &
+    fi
 
 fi 
 
