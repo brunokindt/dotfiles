@@ -4,12 +4,12 @@ export VIM_CMD=vimx
 alias vim='vimx'
 
 export SCRIPT=$HOME/Local/script
-export NOTES=$HOME/Library/notes
 export JOURNO=$HOME/Library/journo_IA
 export JEKYLL=$HOME/Library/notes.jekyll
 export SRC=$HOME/Local/src
 export PRJ=$HOME/Library/projects
 export HAIDEN=$PRJ/haiden
+export NOTES=$PRJ/notes
 
 #export RANGER_LOAD_DEFAULT_RC="FALSE"
 export EDITOR="vimx"
