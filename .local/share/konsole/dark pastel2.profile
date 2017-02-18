@@ -1,5 +1,4 @@
 [Appearance]
-AntiAliasFonts=true
 BoldIntense=false
 ColorScheme=Darker pastels
 Font=DejaVu Sans Mono,7.5,-1,5,50,0,0,0,0,0
@@ -9,7 +8,7 @@ CustomCursorColor=255,128,0
 UseCustomCursorColor=true
 
 [General]
-Name=dark pastel
+Name=dark pastel2
 Parent=FALLBACK/
 ShowTerminalSizeHint=false
 

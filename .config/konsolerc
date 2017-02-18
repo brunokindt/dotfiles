@@ -8,21 +8,22 @@ CurrentPalette=Forty Colors
 DefaultProfile=dark pastel.profile
 
 [Favorite Profiles]
-Favorites=dark blue.profile,dark pastel.profile,dark black.profile
+Favorites=dark blue.profile,dark pastel2.profile
 
 [KonsoleWindow]
 ShowMenuBarByDefault=false
 
 [MainWindow]
-Height 1080=355
+Height 1080=1059
 Height 600=579
 Height 800=779
 MenuBar=Disabled
-State=AAAA/wAAAAD9AAAAAAAAAv4AAAQjAAAABAAAAAQAAAAIAAAACPwAAAAA
+State=AAAA/wAAAAD9AAAAAAAAAooAAAQjAAAABAAAAAQAAAAIAAAACPwAAAAA
 ToolBarsMovable=Disabled
 Width 1200=1198
-Width 1920=1150
+Width 1920=1918
 Width 800=798
+Window-Maximized 1080x1920=false
 
 [Notification Messages]
 ShowPasteHugeTextWarning=false
