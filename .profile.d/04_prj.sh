@@ -154,7 +154,7 @@ prj-hooks-ls() {
 }
 
 prj-usage() {
-  echo "Usage: prj {edit|set|get|ls|add|notes|notes new|notes edit|boiler|hooks}"
+  echo "Usage: prj {edit|set|get|ls|add|notes|notes new|notes edit|boiler|hooks|ue}"
 }
 
 prj-task() {
@@ -172,7 +172,53 @@ prj-task-add() {
   echo $1
 }
 
-prj-task-ls() {
+#prj-task-ls() {
+#}
+
+prj-doing-new() {
+  FILENAME="`date +%Y-%m-%d_%s`.md"
+  FILEPATH="${NOTES}/src/_doing"
+  mkdir -p $FILEPATH
+  echo "$1" > $FILEPATH/$FILENAME 
+}
+
+
+
+prj-ue() {
+  case "$1" in
+    ls) prj-ue-ls ;;
+    *) prj-ue-dir ;;
+  esac
+}
+
+prj-ue-dir() {
+  BASE_DIR="/mnt/garden/bruno.kindt/projects"
+  if [ -d $BASE_DIR ]; then
+    cd $(find $BASE_DIR -maxdepth 1 -iname 'UnrealEngine-4.14*' -type d | sort | head -n 1 )
+  else
+    echo "Could not find path ${BASE_DIR}" 
+  fi
+}
+
+prj-ue-ls() {
+  local BASE_DIR=$PRJ
+  if [ -d $BASE_DIR ]; then
+    for d in $(find $BASE_DIR -maxdepth 2 -type d -path "*/UE__*/tasks" -exec dirname {} \;) ; do
+      echo "----"
+      local git_status=$(git -C ${d} status --short)
+      local git_branch=$(git -C ${d} symbolic-ref HEAD 2>/dev/null)
+      local git_size=$(du ${d}/.git -h --max-depth 1 --total | tail -n 1)
+      local project_size=$(du ${d} -h --exclude .git --max-depth 1 --total | tail -n 1)
+      _log_info "Project $(basename ${d})\n"
+      _log_info "  project size: $project_size"
+      _log_info "      git size: $git_size\n"
+      _log_info "    git branch: $git_branch"
+      _log_info "git status:\n"
+      echo $git_status
+    done
+  else
+    echo "Could not find path ${BASE_DIR}" 
+  fi
 }
 
 prj() {
@@ -187,6 +233,24 @@ prj() {
       boiler) prj-boiler $2 ;;
       hooks) prj-hooks $2 ;;
       task) prj-task $@ ;;
+      ue) prj-ue $2 ;;
+      doing) prj-doing-new $2 ;;
       *) prj-usage;;
   esac
 }
+
+# prj tag clear
+# prj tag +houdini +edu
+# prj tag -edu
+# prj tag save
+# prj tag ls
+# keep tag in prj boiler tags
+
+# prj doing "Add poly models @houdini@edu"
+
+## log doing and subtract 30min from current time
+# prj doing "something" -30
+
+## edit log log entry
+# prj doing edit
+
