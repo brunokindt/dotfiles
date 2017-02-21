@@ -43,16 +43,33 @@ set noswapfile
 
 " CtrlP
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|node_modules$\|build$\|dist$\|.tmp$\|coverage$\|platforms$\|_boiler$\|platforms$\|plugins$\|bower_components$',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|node_modules$\|^build$\|dist$\|.tmp$\|coverage$\|platforms$\|_boiler$\|platforms$\|plugins$\|bower_components$\|dst$',
   \ 'file': '\.so$\|\.dat$\|.swp$'
   \ }
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_working_path_mode = ''
 
 set t_Co=256
 let g:solarized_termcolors=256
 
 " jshint2
 let jshint2_save = 1
+
+" vim-javascript bundle
+
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_null                 = "ø"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_undefined            = "¿"
+let g:javascript_conceal_NaN                  = "ℕ"
+let g:javascript_conceal_prototype            = "¶"
+let g:javascript_conceal_static               = "•"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
+" let g:javascript_conceal_noarg_arrow_function = "🞅"
+" let g:javascript_conceal_underscore_arrow_function = "🞅"
+set conceallevel=1
 
 "colorscheme badwolf
 let g:badwolf_darkgutter = 1
@@ -79,5 +96,5 @@ autocmd Filetype gitcommit setlocal spell textwidth=72 colorcolumn=72
 autocmd BufWritePre *.{less,md,coffee,litcoffee,Cakefile,js} :%s/\s\+$//e
 " CursorHold : fires after you move the cursor and then let it sit still for updatetime milliseconds. (Default 4 seconds.)
 " checktime  : check for changes on disk and prompt you to reload
-autocmd CursorHold * checktime      " check for file changes on cursor 'idle'
-autocmd WinEnter * checktime        " check for file changes on window enter
+" autocmd CursorHold * checktime      " check for file changes on cursor 'idle'
+" autocmd WinEnter * checktime        " check for file changes on window enter
