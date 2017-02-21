@@ -52,11 +52,7 @@ let g:ctrlp_working_path_mode = ''
 set t_Co=256
 let g:solarized_termcolors=256
 
-" jshint2
-let jshint2_save = 1
-
 " vim-javascript bundle
-
 let g:javascript_conceal_function             = "ƒ"
 let g:javascript_conceal_null                 = "ø"
 let g:javascript_conceal_this                 = "@"
@@ -71,11 +67,22 @@ let g:javascript_conceal_arrow_function       = "⇒"
 " let g:javascript_conceal_underscore_arrow_function = "🞅"
 set conceallevel=1
 
-"colorscheme badwolf
+colorscheme badwolf
 let g:badwolf_darkgutter = 1
 let g:badwolf_darkbackground = 1
 "colorscheme tomorrow2
-colorscheme badwolf
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+"let g:syntastic_javascript_checkers = ['eslint', 'jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 
 syntax enable
 set complete+=kspell
