@@ -6,3 +6,7 @@ node_modules
 .config/ranger/history
 .config/ranger/tagged
 .config/ranger/bookmarks
+.vim/spell/*.sug
+.vim/spell/*.add.spl
+.vim/spell/*.spl
+.vim/shada/
