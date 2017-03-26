@@ -53,3 +53,4 @@ function _do_grep {
 alias _do_gcd='gulp components:develop'
 alias _do_docker-machine_eval='eval "$(docker-machine env default)"'
 alias _do_ls_ports='netstat -lnt'
+alias _do_cpu='watch -n 5 grep \"cpu MHz\" /proc/cpuinfo'
