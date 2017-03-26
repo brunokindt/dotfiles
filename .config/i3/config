@@ -174,12 +174,14 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 assign [class="UE4Editor"] workspace 2
+for_window [class="UE4Editor"] move up  
 for_window [class="UE4Editor" title="Message Log"] floating enable
 for_window [class="UE4Editor" title="Levels"] floating enable
 for_window [class="UE4Editor" title="Project Settings"] floating enable
 for_window [class="UE4Editor" title="Plugins"] floating enable
 for_window [class="UE4Editor" title="Open File"] floating enable
 for_window [class="UE4Editor" title="Unreal Project Browser"] floating enable
+for_window [class="UE4Editor" title="Game Preview"] floating enable
 
 for_window [class="vlc"] floating enable
 for_window [class="Keepassx"] floating enable
