@@ -4,10 +4,8 @@ dst_default=$HOME
 #dst_default=`mktemp -d`
 echo "dotfile destination is $dst_default"
 
-mkdir $dst_default/Local
-mkdir $dst_default/Local/src
-#mkdir -p $dst_default/Library/notes
-#mkdir -p $dst_default/Library/projects
+mkdir -p $dst_default/Local
+mkdir -p $dst_default/Local/src
 
 function linkResource {
     local src=$1
