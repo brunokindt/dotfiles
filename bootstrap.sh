@@ -2,8 +2,8 @@
 set -e
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-#HOME_DIR=$HOME
-HOME_DIR=`mktemp -d`
+HOME_DIR=$HOME
+#HOME_DIR=`mktemp -d`
 
 mkdir -p $HOME_DIR/Local/src
 

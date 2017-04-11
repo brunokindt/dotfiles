@@ -47,3 +47,7 @@ alias cformat='clang-format -style=file -i $(find . -name \*.h -print -o -name \
 
 # View dirty memory
 alias dirty='watch grep -e Dirty: -e Writeback: /proc/meminfo'
+
+alias brightness_low="xrandr --output eDP-1 --brightness 0.5"
+alias brightness_normal="xrandr --output eDP-1 --brightness 0.75"
+alias brightness_full="xrandr --output eDP-1 --brightness 1"

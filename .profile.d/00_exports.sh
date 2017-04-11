@@ -1,7 +1,6 @@
 # vim
 export VIMHOME=$HOME/.vim
-export VIM_CMD=vimx
-alias vim='vimx'
+export VIM_CMD=vim 
 
 export SCRIPT=$HOME/Local/script
 export JOURNO=$HOME/Library/journo_IA
@@ -12,18 +11,9 @@ export HAIDEN=$PRJ/haiden
 export NOTES=$PRJ/notes
 
 #export RANGER_LOAD_DEFAULT_RC="FALSE"
-export EDITOR="vimx"
+export EDITOR="nvim"
 export TERMCMD="konsole"  # for awesome wm
 export TERMINAL="konsole" # for i3 wm
-
-# version control
-alias sdv='svn diff | vim -R -'
-alias svs="date;svn status | sort | ack -v '^X ' | ack '^ ?. '"
-alias svu="date;svn update"
-alias svq="date;svn status | ack '\?'"
-alias svc='date;svn status | ack ^C'
-alias svsu="date;svn -u status | ack '^ ?. '"
-alias svnup='date;svn update'
 
 # ack
 export ACK_COLOR_MATCH="bold magenta"
