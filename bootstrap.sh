@@ -1,31 +1,31 @@
-#!/usr/bin/env sh
-source_dir=`pwd`
-dst_default=$HOME
-#dst_default=`mktemp -d`
-echo "dotfile destination is $dst_default"
+#!/usr/bin/env bash 
+set -e
 
-mkdir -p $dst_default/Local
-mkdir -p $dst_default/Local/src
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+HOME_DIR=$HOME
+#HOME_DIR=`mktemp -d`
+
+mkdir -p $HOME_DIR/Local/src
 
 function linkResource {
-    local src=$1
-    local dst=${2:-$dst_default}
+    local SRC=$1
+    local DST=${2:-$HOME_DIR}
 
-    #  $src should be directory of file
-    if [[ -z "$src" || ! -r "$src" ]]; then
-        echo "Could not link $src"
+    #  $SRC should be directory of file
+    if [[ -z "$SRC" || ! -r "$SRC" ]]; then
+        echo "Could not link $SRC"
         return
     fi
 
-    if [[ -e "$dst/$src" ]]; then
-        echo "Destination $dst/$src already exists"
+    if [[ -e "${DST}/${SRC}" ]]; then
+        echo "Destination ${DST}/${SRC} already exists"
         return
     fi
 
     # link the resource
-    echo "Create link from $source_dir/$src to $dst"
-    if [[ ! -d "$dst/$src" ]]; then
-        ln -s "$source_dir/$src" "$dst/$src"
+    echo "Create link from $SCRIPT_DIR/$SRC to ${DST}"
+    if [[ ! -d "${DST}/${SRC}" ]]; then
+        ln -s "${SCRIPT_DIR}/${SRC}" "${DST}/${SRC}"
     fi
 }
 
