@@ -54,3 +54,6 @@ alias _do_gcd='gulp components:develop'
 alias _do_docker-machine_eval='eval "$(docker-machine env default)"'
 alias _do_ls_ports='netstat -lnt'
 alias _do_cpu='watch -n 5 grep \"cpu MHz\" /proc/cpuinfo'
+alias brightness_low="xrandr --output eDP-1 --brightness 0.5"
+alias brightness_normal="xrandr --output eDP-1 --brightness 0.75"
+alias brightness_full="xrandr --output eDP-1 --brightness 1"
