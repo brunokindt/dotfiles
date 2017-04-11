@@ -28,9 +28,22 @@ if [ -f "$SRC/bd/bd" ]; then
     alias bd=". $SRC/bd/bd -s"
 fi
 
+if [ -f "$SRC/autoenv/activate.sh" ]; then
+  source "$SRC/autoenv/activate.sh"
+fi
+
 set_konsole_title() {
   echo -ne "\033]30;$1\007"
 }
 
 alias _do_ls_ports='netstat -lnt'
 alias _do_cpu='watch -n 5 grep \"cpu MHz\" /proc/cpuinfo'
+
+# Ctags
+alias mktags="ctags --extra=+f -R ."
+
+# Clang Format
+alias cformat='clang-format -style=file -i $(find . -name \*.h -print -o -name \*.cpp -print)'
+
+# View dirty memory
+alias dirty='watch grep -e Dirty: -e Writeback: /proc/meminfo'

@@ -194,7 +194,7 @@ prj-ue() {
 prj-ue-dir() {
   BASE_DIR="/mnt/garden/bruno.kindt/projects"
   if [ -d $BASE_DIR ]; then
-    cd $(find $BASE_DIR -maxdepth 1 -iname 'UnrealEngine-4.14*' -type d | sort | head -n 1 )
+    cd $(find $BASE_DIR -maxdepth 1 -iname 'UnrealEngine-4.15*' -type d | sort | head -n 1 )
   else
     echo "Could not find path ${BASE_DIR}" 
   fi
