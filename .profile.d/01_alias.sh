@@ -28,6 +28,9 @@ if [ -f "$SRC/bd/bd" ]; then
     alias bd=". $SRC/bd/bd -s"
 fi
 
+#if [ -d "$SRC/direnv" ]; then
+#  #eval "$(direnv hook zsh)"
+#else [ -f "$SRC/autoenv/activate.sh" ]; 
 if [ -f "$SRC/autoenv/activate.sh" ]; then
   source "$SRC/autoenv/activate.sh"
 fi
@@ -38,6 +41,7 @@ set_konsole_title() {
 
 alias _do_ls_ports='netstat -lnt'
 alias _do_cpu='watch -n 5 grep \"cpu MHz\" /proc/cpuinfo'
+alias _do_cpu2='mpstat 5'
 
 # Ctags
 alias mktags="ctags --extra=+f -R ."
