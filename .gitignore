@@ -7,3 +7,4 @@ node_modules
 .config/ranger/tagged
 .config/ranger/bookmarks
 .local/share/konsole/bookmarks.*
+.profile.d/*.local.sh
