@@ -20,7 +20,7 @@ prj-set() {
 }
 
 prj-get() {
-  cd `cat $PRJ/current`
+  cd "`cat $PRJ/current`"
 }
 
 prj-n() {

@@ -31,9 +31,9 @@ fi
 #if [ -d "$SRC/direnv" ]; then
 #  #eval "$(direnv hook zsh)"
 #else [ -f "$SRC/autoenv/activate.sh" ]; 
-if [ -f "$SRC/autoenv/activate.sh" ]; then
-  source "$SRC/autoenv/activate.sh"
-fi
+#if [ -f "$SRC/autoenv/activate.sh" ]; then
+#  source "$SRC/autoenv/activate.sh"
+#fi
 
 set_konsole_title() {
   echo -ne "\033]30;$1\007"

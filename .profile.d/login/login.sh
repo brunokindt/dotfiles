@@ -8,9 +8,9 @@ if [ ! -z $DISPLAY ]; then
     synclient HorizScrollDelta=-111
   
   # ZEITGEIST
-    if hash zeitgeist-daemon 2> /dev/null; then
-        /usr/bin/zeitgeist-daemon --replace &
-    fi
+    #if hash zeitgeist-daemon 2> /dev/null; then
+    #    /usr/bin/zeitgeist-daemon --replace &
+    #fi
   
     /usr/bin/xsetroot -solid "#020202"
     #/usr/bin/xsetroot -solid "#b6b6a9"
