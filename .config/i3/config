@@ -13,7 +13,7 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 14 
+font pango:monospace 8 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -183,6 +183,8 @@ for_window [class="UE4Editor" title="Plugins"] floating enable
 for_window [class="UE4Editor" title="Open File"] floating enable
 for_window [class="UE4Editor" title="Unreal Project Browser"] floating enable
 for_window [class="UE4Editor" title="Game Preview"] floating enable
+for_window [class="UE4Editor" title="Save File"] floating enable
+for_window [class="UE4Editor" title="Editor Preferences"] floating enable
 
 for_window [class="vlc"] floating enable
 for_window [class="Keepassx"] floating enable
