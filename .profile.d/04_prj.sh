@@ -10,17 +10,30 @@ _log_warn() {
   echo "$(tput setab 1)$(tput setaf 3) $1 $(tput sgr 0)"
 }
 
-prj-edit() {
-  cd `cat $PRJ/current`
-  $EDITOR 
-}
-
 prj-set() {
-  pwd > $PRJ/current; echo "`date`\t`pwd`" >> $PRJ/history
+  PRJ_PATH=$(pwd)
+  echo $PRJ_PATH > $PRJ/current  
+  LOG_LINE="$(date)\t${PRJ_PATH}"
+  echo $LOG_LINE >> $PRJ/history
+  prj-task-dir "$PRJ_PATH"
 }
 
 prj-get() {
-  cd "`cat $PRJ/current`"
+  PRJ_PATH=$(cat $PRJ/current)
+  cd "$PRJ_PATH"
+  prj-task-dir "$PRJ_PATH"
+}
+
+prj-task-dir() {
+  TASKS_DIR=$(realpath "${1}/tasks")
+  HAS_TASKS_IN_PATH=`echo $PATH | grep "${TASKS_DIR}"`
+  if [ ! -d "$TASKS_DIR" ]; then
+    return
+  fi
+  if [[ -z ${HAS_TASKS_IN_PATH} ]]; then
+    export PATH="${TASKS_DIR}":$PATH
+  fi
+  unset HAS_TASKS_IN_PATH
 }
 
 prj-n() {
@@ -41,39 +54,12 @@ prj-ls() {
   tail -n 10 $PRJ/history
 }
 
-prj-notes-edit() {
-  FILEPATH="${NOTES}/src/_posts"
-  $EDITOR "${FILEPATH}"
-}
-
-prj-notes-new() {
-  FILENAME="`date +%Y-%m-%d-untiteld_%s`.md"
-  FILEPATH="${NOTES}/src/_posts"
-  cd $FILEPATH
-  if [ -t 1 ]; then
-      $EDITOR "${FILEPATH}/${FILENAME}"
-  else
-    $TERMCMD -e $EDITOR "${FILEPATH}/${FILENAME}"
-  fi
-}
-
-prj-notes() {
-  case "$1" in
-      new) prj-notes-new ;;
-      *) prj-notes-edit ;;
-  esac
-}
-
 prj-boiler() {
   case "$1" in
+      add) prj-boiler-add ;;
       ls) prj-boiler-ls ;;
-      info) prj-boiler-info ;;
-      *) prj-boiler-add ;;
+      *) prj-boiler-ls ;;
   esac
-}
-
-prj-boiler-info() {
-  find -L $PRJ -type l
 }
 
 prj-boiler-ls() {
@@ -100,7 +86,6 @@ prj-boiler-add() {
     ln -s ${BOILER_PRJ_PATH} "_boiler"
     _log_success "Boiler path set to ${BOILER_PRJ_PATH}" 
   fi
-
 }
 
 prj-hooks() {
@@ -153,51 +138,11 @@ prj-hooks-ls() {
   fi
 }
 
-prj-usage() {
-  echo "Usage: prj {edit|set|get|ls|add|notes|notes new|notes edit|boiler|hooks|ue}"
-}
-
-prj-task() {
-  echo $2
-  case "$2" in
-    add) prj-task-add $3 ;;
-    ls) prj-task-list $2 ;;
-    *) echo "nope" ;;
-  esac
-}
-
-prj-task-add() {
-  #task add project:"$(basename $(cat $PRJ/current))" 
-  echo "Add $(basename $(cat $PRJ/current))"
-  echo $1
-}
-
-#prj-task-ls() {
-#}
-
-prj-doing-new() {
-  FILENAME="`date +%Y-%m-%d_%s`.md"
-  FILEPATH="${NOTES}/src/_doing"
-  mkdir -p $FILEPATH
-  echo "$1" > $FILEPATH/$FILENAME 
-}
-
-
-
 prj-ue() {
   case "$1" in
     ls) prj-ue-ls ;;
     *) prj-ue-dir ;;
   esac
-}
-
-prj-ue-dir() {
-  BASE_DIR="/opt/ue"
-  if [ -d $BASE_DIR ]; then
-    cd $(find $BASE_DIR -maxdepth 1 -iname 'UnrealEngine-4.*' -type d | sort --reverse | head -n 1 )
-  else
-    echo "Could not find path ${BASE_DIR}" 
-  fi
 }
 
 prj-ue-ls() {
@@ -223,34 +168,18 @@ prj-ue-ls() {
 
 prj() {
   case "$1" in
-      edit) prj-edit ;;
       set) prj-set ;;
       get) prj-get ;;
       n) prj-n $2 ;;
       ls) prj-ls ;;
-      add) prj-add $2 ;;
-      notes) prj-notes $2 ;;
       boiler) prj-boiler $2 ;;
       hooks) prj-hooks $2 ;;
-      task) prj-task $@ ;;
       ue) prj-ue $2 ;;
-      doing) prj-doing-new $2 ;;
-      *) prj-usage;;
+      *q) prj-usage;;
   esac
 }
 
-# prj tag clear
-# prj tag +houdini +edu
-# prj tag -edu
-# prj tag save
-# prj tag ls
-# keep tag in prj boiler tags
-
-# prj doing "Add poly models @houdini@edu"
-
-## log doing and subtract 30min from current time
-# prj doing "something" -30
-
-## edit log log entry
-# prj doing edit
+prj-usage() {
+  echo "Usage: prj {set|get|ls|boiler|hooks|ue}"
+}
 

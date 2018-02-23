@@ -5,6 +5,7 @@ alias ranger='python $SRC/ranger/ranger.py'
 alias week='/bin/date +%V'
 # clear urxvt scrollback
 alias cls="echo -ne '\033c'"
+alias git_log_unique="git log --pretty=format:'%C(White)%s' | sort | uniq --unique"
 
 if [ -f "$SCRIPT/v/v.sh" ]; then
     . "$SCRIPT/v/v.sh"
@@ -33,6 +34,13 @@ set_konsole_title() {
 alias _do_ls_ports='netstat -lnt'
 alias _do_cpu='watch -n 5 grep \"cpu MHz\" /proc/cpuinfo'
 alias _do_cpu2='mpstat 5'
+alias _do_cpu_temp='cat /sys/class/thermal/thermal_zone0/temp'
+
+_do_cpu_temp2() {
+  local DATE=$(date --iso-8601='seconds')
+  local CPU_TEMP=$(cat /sys/class/thermal/thermal_zone0/temp)
+  echo "${DATE} ${CPU_TEMP}"
+}
 
 # Ctags
 alias mktags="ctags --extra=+f -R ."
