@@ -1,3 +1,7 @@
+PRJ_HOOKS_DIR="${PRJ}/prj.boiler/hooks/prj"
+PRJ_GIT_HOOKS_DIR="${PRJ}/prj.boiler/hooks"
+PRJ_LINKS_DIR="${PRJ}/prj.boiler/links"
+
 _log_info() {
   echo "$(tput setaf 4) $1 $(tput sgr 0)"
 }
@@ -16,12 +20,18 @@ prj-set() {
   LOG_LINE="$(date)\t${PRJ_PATH}"
   echo $LOG_LINE >> $PRJ/history
   prj-task-dir "$PRJ_PATH"
+  if [ -f $PRJ_HOOKS_DIR/prj-set ]; then
+    $PRJ_HOOKS_DIR/prj-set
+  fi
 }
 
 prj-get() {
   PRJ_PATH=$(cat $PRJ/current)
   cd "$PRJ_PATH"
   prj-task-dir "$PRJ_PATH"
+  if [ -f $PRJ_HOOKS_DIR/prj-get ]; then
+    $PRJ_HOOKS_DIR/prj-get
+  fi
 }
 
 prj-task-dir() {
@@ -72,19 +82,18 @@ prj-boiler-ls() {
 
 prj-boiler-add() {
   _log_info "Set boiler"  
-  BOILER_PATH="${PRJ}/prj.boiler/links"
   PRJ_PATH=`pwd`
-  BOILER_PRJ_PATH="${BOILER_PATH}/`date +%Y-%m-%d-`$RANDOM"
+  LINK_DEST="${PRJ_LINKS_DIR}/`date +%Y-%m-%d-`$RANDOM"
 
   if [ -d "_boiler" ]; then
     _log_warn "Boiler already exists"
     return 
   fi
 
-  if [ ! -d "${BOILER_PRJ_PATH}" ]; then
-    mkdir -p ${BOILER_PRJ_PATH}
-    ln -s ${BOILER_PRJ_PATH} "_boiler"
-    _log_success "Boiler path set to ${BOILER_PRJ_PATH}" 
+  if [ ! -d "${LINK_DEST}" ]; then
+    mkdir -p ${LINK_DEST}
+    ln -s ${LINK_DEST} "_boiler"
+    _log_success "Boiler path set to ${LINK_DEST}" 
   fi
 }
 
@@ -98,26 +107,25 @@ prj-hooks() {
 
 prj-hooks-add() {
   HOOKS_DIR=".git/hooks"
-  BOILER_HOOKS_DIR="$PRJ/prj.boiler/hooks"
 
   if [ ! -d  "$HOOKS_DIR" ]; then
     _log_warn "No git hooks directory found"
     return
   fi
 
-  _log_info "Symlink git hooks from $BOILER_HOOKS_DIR"
+  _log_info "Symlink git hooks from $PRJ_GIT_HOOKS_DIR"
 
-  for f in $BOILER_HOOKS_DIR/* ; do
-
+  for f in $PRJ_GIT_HOOKS_DIR/* ; do
+    if [ -d $f ]; then
+      continue
+    fi
     HOOK_FILE=`basename $f`
-
     if [ -L "$HOOKS_DIR/$HOOK_FILE" ]; then
       _log_info "Hook $HOOK_FILE already exists"
     else
       ln -s $f "$HOOKS_DIR"
       _log_info "Hook $HOOK_FILE added"
     fi
-
   done
 }
 
