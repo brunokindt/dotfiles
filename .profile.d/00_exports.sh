@@ -5,7 +5,8 @@ export VIM_CMD=vim
 
 export SCRIPT=$HOME/Local/script
 export SRC=$HOME/Local/src
-export PRJ=$HOME/Library/projects
+#export PRJ=$HOME/Library/projects
+export PRJ=/srv/projects
 
 #export RANGER_LOAD_DEFAULT_RC="FALSE"
 export EDITOR="nvim"
@@ -18,10 +19,6 @@ DOTNET_CLI_TELEMETRY_OPTOUT=true
 
 # ack
 export ACK_COLOR_MATCH="bold magenta"
-
-if [ -d "/usr/local/heroku/bin" ]; then
-    PATH="/usr/local/heroku/bin:$PATH"
-fi
 
 # update path
 if [ -d "$HOME/Local/bin" ]; then
