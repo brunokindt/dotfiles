@@ -14,11 +14,8 @@ print('Focused window %s is on workspace %s' %
 # Query the ipc for outputs. The result is a list that represents the parsed
 # reply of a command like `i3-msg -t get_outputs`.
 outputs = i3.get_outputs()
-
-print('Active outputs:')
-
 for output in filter(lambda o: o.active, outputs):
-    print(output.name)
+    print('[active output] %s' % output.name)
 
 # Send a command to be executed synchronously.
 # i3.command('focus left')
@@ -32,23 +29,26 @@ def on_workspace_focus(self, e):
     # The first parameter is the connection to the ipc and the second is an object
     # with the data of the event sent from i3.
     if e.current:
-        print('Windows on this workspace:')
-        for w in e.current.leaves():
-            print(w.name)
+        print('[workspace focus] %s' % e.current.name)
+        # print('Windows on this workspace:')
+        # for w in e.current.leaves():
+        #     print(w.name)
 
 # Dynamically name your workspaces after the current window class
 def on_window_focus(i3, e):
     focused = i3.get_tree().find_focused()
-    ws_name = "%s:%s" % (focused.workspace().num, focused.window_class)
-    #i3.command('rename workspace to "%s"' % ws_name)
-    print(ws_name)
+    print("[window focus] %s:%s" % (focused.workspace().num, focused.window_class))
 
 def on_window_new(i3, e):
-    print(e.change)
-    print(e.container.name)
-    print(e.container.command)
-    print(e.container.window)
-    print(dir(e.container))
+    print("[window new] %s" % e.change)
+    print("\t[container.name] %s" % e.container.name)
+    print("\t[container.type] %s" % e.container.type)
+    print("\t[container.command] %s" % e.container.command)
+    print("\t[container.window] %s" % e.container.window)
+    print("\t[container.window_role] %s" % e.container.window_role)
+    print("\t[container.window_class] %s" % e.container.window_class)
+    print("\t[container.urgent] %s" % e.container.urgent)
+    print("\t[dir container] %s" % dir(e.container))
     print("-----------------")
 
 # Subscribe to events
@@ -58,3 +58,19 @@ i3.on("window::new", on_window_new)
 
 # Start the main loop and wait for events to come in.
 i3.main()
+
+# [workspace focus] 2
+# [window focus] 2:UE4Editor
+# [window focus] 2:UE4Editor
+# [window focus] 2:UE4Editor
+# [window focus] 2:UE4Editor
+# [window new] new
+#         [container.name] None
+#         [container.type] con
+#         [container.command] <bound method Con.command of <i3ipc.i3ipc.Con object at 0x7f4a71af3dd8>>
+#         [container.window] 54526169
+#         [container.window_role] None
+#         [container.window_class] UE4Editor
+#         [container.urgent] False
+#         [dir container] ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_conn', 'border', 'command', 'command_children', 'current_border_width', 'deco_rect', 'descendents', 'find_by_id', 'find_by_role', 'find_by_window', 'find_classed', 'find_focused', 'find_fullscreen', 'find_instanced', 'find_marked', 'find_named', 'floating', 'floating_nodes', 'focus', 'focused', 'fullscreen_mode', 'gaps', 'id', 'layout', 'leaves', 'marks', 'name', 'nodes', 'num', 'orientation', 'parent', 'percent', 'props', 'rect', 'root', 'scratchpad', 'scratchpad_state', 'type', 'urgent', 'window', 'window_class', 'window_instance', 'window_rect', 'window_role', 'workspace', 'workspaces']
+

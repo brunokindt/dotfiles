@@ -25,6 +25,7 @@ prj-set() {
   fi
 }
 
+# @TODO warn about missing or invalid git post-commit hook ( note: hook could be in parent dir, example: pbr-apps/packages/pbr-goodmind-upload-koajs has hook in pbr-apps/ )
 prj-get() {
   PRJ_PATH=$(cat $PRJ/current)
   cd "$PRJ_PATH"

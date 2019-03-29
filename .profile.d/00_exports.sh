@@ -5,7 +5,6 @@ export VIM_CMD=vim
 
 export SCRIPT=$HOME/Local/script
 export SRC=$HOME/Local/src
-#export PRJ=$HOME/Library/projects
 export PRJ=/srv/projects
 
 #export RANGER_LOAD_DEFAULT_RC="FALSE"
@@ -24,5 +23,7 @@ export ACK_COLOR_MATCH="bold magenta"
 if [ -d "$HOME/Local/bin" ]; then
     PATH="$HOME/Local/bin:$PATH"
 fi
+
+export BROWSER=$(which chromium-browser)
 
 export PATH
