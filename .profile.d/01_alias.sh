@@ -15,7 +15,7 @@ alias next="nvim -S ~/swamp/pbr-next.vim"
 #   z foo bar   # cd to most frecent dir matching foo and bar
 #   z -r foo    # cd to highest ranked dir matching foo
 
-SRC="$HOME/.local/src"
+SRC="$HOME/Local/src"
 
 alias ranger='python $SRC/ranger/ranger.py'
 
